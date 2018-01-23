@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.RootMapper" >
+  <resultMap id="BaseResultMap" type="bean.Root" >
+    <id column="r_id" property="rId" jdbcType="BIGINT" />
+    <result column="r_username" property="rUsername" jdbcType="VARCHAR" />
+    <result column="r_password" property="rPassword" jdbcType="VARCHAR" />
+    <result column="r_name" property="rName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    r_id, r_username, r_password, r_name
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="bean.RootExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from root
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from root
+    where r_id = #{rId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from root
+    where r_id = #{rId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="bean.RootExample" >
+    delete from root
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="bean.Root" >
+    insert into root (r_id, r_username, r_password, 
+      r_name)
+    values (#{rId,jdbcType=BIGINT}, #{rUsername,jdbcType=VARCHAR}, #{rPassword,jdbcType=VARCHAR}, 
+      #{rName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="bean.Root" >
+    insert into root
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rId != null" >
+        r_id,
+      </if>
+      <if test="rUsername != null" >
+        r_username,
+      </if>
+      <if test="rPassword != null" >
+        r_password,
+      </if>
+      <if test="rName != null" >
+        r_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rId != null" >
+        #{rId,jdbcType=BIGINT},
+      </if>
+      <if test="rUsername != null" >
+        #{rUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="rPassword != null" >
+        #{rPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="rName != null" >
+        #{rName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="bean.RootExample" resultType="java.lang.Integer" >
+    select count(*) from root
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update root
+    <set >
+      <if test="record.rId != null" >
+        r_id = #{record.rId,jdbcType=BIGINT},
+      </if>
+      <if test="record.rUsername != null" >
+        r_username = #{record.rUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rPassword != null" >
+        r_password = #{record.rPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rName != null" >
+        r_name = #{record.rName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update root
+    set r_id = #{record.rId,jdbcType=BIGINT},
+      r_username = #{record.rUsername,jdbcType=VARCHAR},
+      r_password = #{record.rPassword,jdbcType=VARCHAR},
+      r_name = #{record.rName,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="bean.Root" >
+    update root
+    <set >
+      <if test="rUsername != null" >
+        r_username = #{rUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="rPassword != null" >
+        r_password = #{rPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="rName != null" >
+        r_name = #{rName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where r_id = #{rId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="bean.Root" >
+    update root
+    set r_username = #{rUsername,jdbcType=VARCHAR},
+      r_password = #{rPassword,jdbcType=VARCHAR},
+      r_name = #{rName,jdbcType=VARCHAR}
+    where r_id = #{rId,jdbcType=BIGINT}
+  </update>
+</mapper>

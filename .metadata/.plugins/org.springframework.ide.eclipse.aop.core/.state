@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="bookstore"/>
+<aop-project name="bookstore_back"/>
+<aop-project name="TrainingSystem"/>
+<aop-project name="ssm-curd"/>
+</aop-reference-model>

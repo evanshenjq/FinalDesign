@@ -1,0 +1,49 @@
+@charset "UTF-8";
+#user_info{
+	border-bottom: 1px solid #000;
+	margin-top:45px;
+	margin-bottom: 0;
+	padding-left:0;
+}
+#user_center{
+	margin-bottom: 0;
+	font-size: 2em;
+	border-bottom: 1px solid #000;
+	width:69%;
+}
+#user_function div button{
+	padding-left:10px;
+	font-size: 15px;
+	color:#000;
+	font-weight: 500;
+}
+#user_function div{
+	margin-bottom: 30px;
+}
+#firstdiv{
+	margin-top:25px;
+}
+#user_info_show form{
+	margin-top:70px;
+	font-size: 18px;
+}
+#user_info_show form div{
+	margin-bottom: 5px;
+}
+#user_update_btn{
+	margin-top: 10px;
+	background-color: #ff8000;
+	width:80px;
+	height:40px;
+	color:#FFF;
+}
+.help-block{
+	height:20px;
+	font-size: 18px;
+}
+#updated_time{
+	margin-left: 50px;
+	margin-bottom: 40px;
+	font-size: 14px;
+	color: #808080;
+}

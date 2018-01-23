@@ -1,0 +1,72 @@
+@charset "UTF-8";
+#head-top{
+	background: #000;
+	padding: 15px 0;
+}
+#head-mid{
+	padding: 20px 0;
+	border-bottom: 1px solid #000;
+}
+#banner{
+	background: url("../images/1.jpg") no-repeat;
+	height:350px;
+	background-size: cover;
+    width: 100%;
+}
+#banner h1{
+	font-size:100px;
+	color: #000000;
+}
+#banner p{
+	font-size:40px;
+	color: #000000;
+}
+
+#shop{
+	border:2px solid #000;
+	margin-left:80px;
+	margin-right: 80px;
+	padding:30px 0;
+	padding-bottom: 100px;
+}
+#container{
+	padding-top:15px;
+	background:#141414;
+	height:230px;
+}
+#container button{
+	color:#989696;
+	font-size: 18px;
+}
+#logo-big{
+	padding-top: 70px;
+	padding-left: 40px; 
+}
+#footer{
+	margin-top: 85px;
+}
+#footer h1{
+	color: white;
+	padding-bottom: 18px;
+}
+#footer p{
+	color:#989696;
+	font-size: 18px;
+}
+#foot{
+	background: #000;
+}
+#foot h3{
+	color:white;
+}
+#user_is_login{
+	font-size: 14px;
+	color:#FFF;
+}
+#user_not_login button{
+	margin-right: 3px;
+}
+#user_is_login button{
+	font-size: 14px;
+	color:#FFF;
+}
