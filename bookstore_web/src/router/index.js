@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import AppHeader from '@/common/AppHeader'
+import Index from '@/components/Index'
 
 Vue.use(Router)
 
@@ -13,9 +14,8 @@ export default new Router({
     //   component:
     // },
     {
-      path: '/AppHeader',
-      name: 'AppHeader',
-      component: AppHeader
-    }
+      path:'/',
+      component:Index
+    },
   ]
 })

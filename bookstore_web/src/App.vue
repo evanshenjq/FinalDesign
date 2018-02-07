@@ -1,16 +1,20 @@
 <template>
   <div id="app">
+    <app-header/>
+    <login-header/>
     <router-view/>
   </div>
 </template>
 
 <script>
 import AppHeader from '@/common/AppHeader'
+import LoginHeader from '@/common/LoginHeader'
 
 export default {
   name: 'app',
   components:{
-   
+    AppHeader,
+    LoginHeader
   }
 }
 </script>
