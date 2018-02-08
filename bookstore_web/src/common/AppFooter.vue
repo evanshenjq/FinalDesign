@@ -21,7 +21,7 @@
             <button class="btn btn-link">管理员入口</button>
         </div>
       </div>
-      <div class="autohor">@ztsu.sjq.final.design</div>
+      <div class="author">@ztsu.sjq.final.design</div>
   </div>
 </template>
 
@@ -47,7 +47,7 @@ footerTitle{
     font-weight: 500;
     margin-left: 12px;
 }
-.autohor{
+.author{
     text-align: center;
 }
 .font_style{

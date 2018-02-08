@@ -1,7 +1,12 @@
 <template>
 	<div class="row">
 		<!-- 搜索栏 -->
-		<div class="input-group col-md-6 col-md-offset-3" id="search_nav">
+		<div class="col-md-1">
+			<a href="/">
+				<img id="logo_image" src="../assets/image/logo.png">
+			</a>
+		</div>
+		<div class="input-group col-md-6 col-md-offset-2" id="search_nav">
   			<span class="input-group-addon" id="search_sort">图书{{name}}</span>
 			<input type="text" class="form-control" id="search_book">
 			<span class="input-group-btn">
@@ -40,6 +45,12 @@ export default {
 }
 #search_image{
 	color: azure;
+}
+#logo_image{
+	width: 190px;
+	height: 54px;
+	margin-left: 8px;
+	margin-top: 3px;
 }
 </style>
 

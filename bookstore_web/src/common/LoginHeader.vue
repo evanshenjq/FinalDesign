@@ -3,7 +3,7 @@
       <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="col-md-1 col-md-offset-8">
-            <button class="btn btn-link" id="login_btn">您好，登陆账户</button>
+            <button class="btn btn-link" id="login_btn" @click='turnLoginPage()'>您好，登陆账户</button>
             </div>
             <div class="col-md-1">
             <button class="btn btn-link" id="register_btn">免费注册</button>
@@ -27,6 +27,9 @@ export default {
     };
   },
   methods:{
+    turnLoginPage(){
+        this.$router.push('/login');
+    }
     
   }
 }
