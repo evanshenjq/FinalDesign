@@ -5,6 +5,7 @@ import Login from '@/page/Login'
 import Register from '@/page/Register'
 import BooksInfo from '@/page/BooksInfo'
 import BookInfo from '@/page/BookInfo'
+import UserCenter from '@/page/UserCenter'
 
 Vue.use(Router)
 
@@ -36,10 +37,15 @@ export default new Router({
       component:BooksInfo
     },
     {
-      path:'/bookInfo',
-      name:'BookInfo',
-      component:BookInfo
-    }
+       path:'/bookInfo',
+       name:'BookInfo',
+       component:BookInfo
+     },
+     {
+      path:'/userCenter',
+      name:'UserCenter',
+      component:UserCenter
+     }
 
   ]
 })

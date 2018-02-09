@@ -75,7 +75,7 @@ export default {
     padding-top: 10px;
 }
 #register_btn{
-    margin-top: 15px;
+    
     background-color: #f0c14b;
     width:345px;
 }
