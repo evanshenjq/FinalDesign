@@ -33,7 +33,7 @@ export default {
 
 <style>
 .footer_info{
-    margin-top:100px;
+    margin-top:70px;
     border-top-style:solid;
     border-top-width: 0.8px;
     border-top-color: #dddddd;
