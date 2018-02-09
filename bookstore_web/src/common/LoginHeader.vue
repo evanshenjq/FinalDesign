@@ -6,7 +6,7 @@
             <button class="btn btn-link" id="login_btn" @click='turnLoginPage()'>您好，登陆账户</button>
             </div>
             <div class="col-md-1">
-            <button class="btn btn-link" id="register_btn">免费注册</button>
+            <button class="btn btn-link" id="register_btn" @click="turnRegisterPage()">免费注册</button>
             </div>
             <div class="col-md-1">
             <button class="btn btn-link" id="cart_btn">
@@ -29,6 +29,9 @@ export default {
   methods:{
     turnLoginPage(){
         this.$router.push('/login');
+    },
+    turnRegisterPage(){
+        this.$router.push('/register');
     }
     
   }

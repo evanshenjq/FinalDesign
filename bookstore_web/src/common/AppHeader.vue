@@ -7,7 +7,7 @@
 			</a>
 		</div>
 		<div class="input-group col-md-6 col-md-offset-2" id="search_nav">
-  			<span class="input-group-addon" id="search_sort">图书{{name}}</span>
+  			<span class="input-group-addon" id="search_sort">{{name}}</span>
 			<input type="text" class="form-control" id="search_book">
 			<span class="input-group-btn">
        			 <button class="btn btn-default" type="button" id="search_button">
@@ -23,7 +23,7 @@ export default {
 	name:"AppHeader",
 	data(){
 		return{
-			
+			name:"图书"
 		};
 	},
 	methods:{

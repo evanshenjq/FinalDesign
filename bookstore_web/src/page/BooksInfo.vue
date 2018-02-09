@@ -4,15 +4,15 @@
 <login-header/>
     <div class="row">
         <book-cat-nav/>
-        <book-content/>
+        <books-content/>
     </div>
 <app-footer/>
 </div>
 </template>
 
 <script>
-import BookCatNav from '@/common/BookCatNav'
-import BookContent from '@/common/BookContent'
+import BookCatNav from '@/components/BookCatNav'
+import BooksContent from '@/components/BooksContent'
 import AppHeader from '@/common/AppHeader'
 import LoginHeader from '@/common/LoginHeader'
 import AppFooter from '@/common/AppFooter'
@@ -20,7 +20,7 @@ import AppFooter from '@/common/AppFooter'
 export default {
     components:{
         BookCatNav,
-        BookContent,
+        BooksContent,
         AppHeader,
         LoginHeader,
         AppFooter

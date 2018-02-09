@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import AppHeader from '@/common/AppHeader'
-import Index from '@/components/Index'
-import Login from '@/components/Login'
-import Register from '@/components/Register'
-import BookInfo from '@/components/BookInfo'
+import Index from '@/page/Index'
+import Login from '@/page/Login'
+import Register from '@/page/Register'
+import BooksInfo from '@/page/BooksInfo'
+import BookInfo from '@/page/BookInfo'
 
 Vue.use(Router)
 
@@ -31,10 +31,15 @@ export default new Router({
       component:Register
     },
     {
+      path:'/booksInfo',
+      name:'BooksInfo',
+      component:BooksInfo
+    },
+    {
       path:'/bookInfo',
       name:'BookInfo',
       component:BookInfo
-    },
+    }
 
   ]
 })
