@@ -6,6 +6,10 @@ import Register from '@/page/Register'
 import BooksInfo from '@/page/BooksInfo'
 import BookInfo from '@/page/BookInfo'
 import UserCenter from '@/page/UserCenter'
+import UserInfo from '@/page/UserInfo'
+import UserOrder from '@/page/UserOrder'
+import UpdatePassword from '@/page/UpdatePassword'
+
 
 Vue.use(Router)
 
@@ -45,7 +49,22 @@ export default new Router({
       path:'/userCenter',
       name:'UserCenter',
       component:UserCenter
-     }
+     },
+     {
+      path:'/userOrder',
+      name:'UserOrder',
+      component:UserOrder
+     },
+     {
+      path:'/userInfo',
+      name:'UserInfo',
+      component:UserInfo
+     },
+     {
+      path:'/updatePassword',
+      name:'UpdatePassword',
+      component:UpdatePassword
+     },
 
   ]
 })

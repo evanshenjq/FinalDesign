@@ -240,6 +240,7 @@ export default {
 
 <style>
 .book_div{
+    width:100%;
     border-bottom-style:solid;
     border-bottom-width: 0.8px;
     border-bottom-color: #dddddd;

@@ -1,5 +1,5 @@
 <template>
-<div id="register_page">
+<div id="register_page" class="row">
   <logo-header/>
   <div class="row">
       <div class="col-md-3" id="register_form">
@@ -40,12 +40,13 @@
             </div>
             <div class="form-group">
                 <div>
-                <button type="button" class="btn btn-default" id="register_btn">注册</button>
+                <button type="button" class="btn btn-default form-control" id="register_btn">注册</button>
                 </div>
             </div>
         </form>
       </div>
       </div>
+      <div id="author">@ztsu.sjq.final.design</div>
 </div>
 </template>
 
@@ -75,9 +76,13 @@ export default {
     padding-top: 10px;
 }
 #register_btn{
-    
     background-color: #f0c14b;
-    width:345px;
+    width:100%;
+    margin-left: 0;
+}
+#author{
+    margin-top: 120px;
+    text-align: center;
 }
 </style>
 

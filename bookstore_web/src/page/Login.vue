@@ -1,5 +1,5 @@
 <template>
-  <div id="login_page">
+  <div id="login_page" class="row">
       <logo-header/>
     <div class="row">
       <div class="col-md-3" id="login_form">
@@ -24,8 +24,7 @@
                 <button type="button" class="btn btn-default" id="login_btn">登陆</button>
                 </div>
             </div>
-        </form>
-        <div class="beauty_line">  
+            <div class="beauty_line">  
             <span style="white-space:pre;">  </span><span class="line"></span>  
             <span style="white-space:pre;">  </span><span class="txt">EShop的新用户？</span>  
             <span style="white-space:pre;">  </span><span class="line"></span>  
@@ -35,7 +34,7 @@
                 <button type="button" class="btn btn-default" id="turn_register_btn" @click='turnToRegisterPage()'>注册</button>
                 </div>
             </div>
-         
+        </form>
       </div>
     </div>
 
@@ -78,7 +77,7 @@ export default {
 #login_btn{
     margin-top: 15px;
     background-color: #f0c14b;
-    width:345px;
+    width:100%;
 }
 .beauty_line {  
    height: 60px;  
@@ -87,7 +86,7 @@ export default {
 }  
  .beauty_line .line {  
    display: inline-block;  
-   width: 120px;  
+   width: 20%;  
    border-top: 1px solid #ccc ;  
 }  
 .beauty_line .txt {  
@@ -95,9 +94,8 @@ export default {
    vertical-align: middle;  
 }  
 #turn_register_btn{
-    margin-left:15px;
     background-color: #edeef1;
-    width:345px;
+    width:100%;
     margin-bottom: 20px;
 }
 #author{

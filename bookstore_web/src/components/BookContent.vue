@@ -101,7 +101,7 @@ a{
     border-top-style:solid;
     border-top-width: 1px;
     border-top-color: #dddddd;
-    width:750px;
+    width:100%;
 }
 .book_name{
     font-size: 28px;

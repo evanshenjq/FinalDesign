@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="row">
 <app-header/>
 <login-header/>
     <div class="row">
