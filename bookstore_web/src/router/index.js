@@ -9,7 +9,7 @@ import UserCenter from '@/page/UserCenter'
 import UserInfo from '@/page/UserInfo'
 import UserOrder from '@/page/UserOrder'
 import UpdatePassword from '@/page/UpdatePassword'
-
+import BookPage from '@/page/adminPage/BookPage'
 
 Vue.use(Router)
 
@@ -64,6 +64,11 @@ export default new Router({
       path:'/updatePassword',
       name:'UpdatePassword',
       component:UpdatePassword
+     },
+     {
+      path:'/bookPage',
+      name:'BookPage',
+      component:BookPage
      },
 
   ]
