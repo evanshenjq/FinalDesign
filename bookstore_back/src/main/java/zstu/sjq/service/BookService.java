@@ -8,7 +8,6 @@ import zstu.sjq.bean.BsBook;
 
 @Service
 public interface BookService {
-	
 
 	public List<BsBook> selectAll();
 	
