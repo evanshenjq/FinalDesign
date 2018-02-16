@@ -70,6 +70,11 @@ export default new Router({
       name:'BookPage',
       component:BookPage
      },
+     {
+       path:'/orderPage',
+       name:'BookPage',
+       component:BookPage
+     }
 
   ]
 })
