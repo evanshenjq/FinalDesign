@@ -1,12 +1,10 @@
 package zstu.sjq.dao;
 
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 import zstu.sjq.bean.BsOrder;
 import zstu.sjq.bean.BsOrderExample;
-import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-@Mapper
 public interface BsOrderMapper {
     int countByExample(BsOrderExample example);
 

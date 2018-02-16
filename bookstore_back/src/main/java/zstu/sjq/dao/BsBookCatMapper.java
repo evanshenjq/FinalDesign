@@ -1,12 +1,10 @@
 package zstu.sjq.dao;
 
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 import zstu.sjq.bean.BsBookCat;
 import zstu.sjq.bean.BsBookCatExample;
-import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-@Mapper
 public interface BsBookCatMapper {
     int countByExample(BsBookCatExample example);
 

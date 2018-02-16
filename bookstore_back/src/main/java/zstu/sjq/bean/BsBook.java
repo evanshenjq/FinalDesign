@@ -25,6 +25,8 @@ public class BsBook {
 
     private Date updated;
 
+    private Double score;
+
     public Long getId() {
         return id;
     }
@@ -111,5 +113,13 @@ public class BsBook {
 
     public void setUpdated(Date updated) {
         this.updated = updated;
+    }
+
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
     }
 }

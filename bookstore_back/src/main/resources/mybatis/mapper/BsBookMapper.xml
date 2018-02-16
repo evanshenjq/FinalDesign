@@ -13,6 +13,7 @@
     <result column="cat_id" property="catId" jdbcType="BIGINT" />
     <result column="created" property="created" jdbcType="TIMESTAMP" />
     <result column="updated" property="updated" jdbcType="TIMESTAMP" />
+    <result column="score" property="score" jdbcType="DOUBLE" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -73,7 +74,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, name, publish, desc, price, num, image, status, cat_id, created, updated
+    id, name, publish, desc, price, num, image, status, cat_id, created, updated, score
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="zstu.sjq.bean.BsBookExample" >
     select
@@ -109,11 +110,11 @@
     insert into bs_book (id, name, publish, 
       desc, price, num, image, 
       status, cat_id, created, 
-      updated)
+      updated, score)
     values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{publish,jdbcType=VARCHAR}, 
       #{desc,jdbcType=VARCHAR}, #{price,jdbcType=BIGINT}, #{num,jdbcType=BIGINT}, #{image,jdbcType=VARCHAR}, 
       #{status,jdbcType=TINYINT}, #{catId,jdbcType=BIGINT}, #{created,jdbcType=TIMESTAMP}, 
-      #{updated,jdbcType=TIMESTAMP})
+      #{updated,jdbcType=TIMESTAMP}, #{score,jdbcType=DOUBLE})
   </insert>
   <insert id="insertSelective" parameterType="zstu.sjq.bean.BsBook" >
     insert into bs_book
@@ -151,6 +152,9 @@
       <if test="updated != null" >
         updated,
       </if>
+      <if test="score != null" >
+        score,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -185,6 +189,9 @@
       </if>
       <if test="updated != null" >
         #{updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=DOUBLE},
       </if>
     </trim>
   </insert>
@@ -230,6 +237,9 @@
       <if test="record.updated != null" >
         updated = #{record.updated,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.score != null" >
+        score = #{record.score,jdbcType=DOUBLE},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -247,7 +257,8 @@
       status = #{record.status,jdbcType=TINYINT},
       cat_id = #{record.catId,jdbcType=BIGINT},
       created = #{record.created,jdbcType=TIMESTAMP},
-      updated = #{record.updated,jdbcType=TIMESTAMP}
+      updated = #{record.updated,jdbcType=TIMESTAMP},
+      score = #{record.score,jdbcType=DOUBLE}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -285,6 +296,9 @@
       <if test="updated != null" >
         updated = #{updated,jdbcType=TIMESTAMP},
       </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=DOUBLE},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -299,7 +313,8 @@
       status = #{status,jdbcType=TINYINT},
       cat_id = #{catId,jdbcType=BIGINT},
       created = #{created,jdbcType=TIMESTAMP},
-      updated = #{updated,jdbcType=TIMESTAMP}
+      updated = #{updated,jdbcType=TIMESTAMP},
+      score = #{score,jdbcType=DOUBLE}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>
