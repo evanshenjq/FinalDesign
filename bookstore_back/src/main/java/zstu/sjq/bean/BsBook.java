@@ -9,9 +9,9 @@ public class BsBook {
 
     private String publish;
 
-    private String desc;
+    private String descr;
 
-    private Long price;
+    private Double price;
 
     private Long num;
 
@@ -51,19 +51,19 @@ public class BsBook {
         this.publish = publish == null ? null : publish.trim();
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescr() {
+        return descr;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc == null ? null : desc.trim();
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
     }
 
-    public Long getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Long price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
