@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import zstu.sjq.bean.BsBook;
+import zstu.sjq.bean.BsBookExample;
+import zstu.sjq.bean.BsBookExample.Criteria;
 import zstu.sjq.dao.BsBookMapper;
 import zstu.sjq.service.BookService;
 @Service
@@ -23,7 +25,6 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public void addBook(BsBook book) {
 		bsBookMapper.insertSelective(book);
-
 	}
 
 	@Override
@@ -34,6 +35,22 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public void updateBook(BsBook book) {
 		bsBookMapper.updateByPrimaryKeySelective(book);
+	}
+
+	
+	@Override
+	public BsBook getBook(long bookId) {
+		bsBookMapper.selectByPrimaryKey(bookId);
+		return null;
+	}
+	
+	//获得所有上架的书籍
+	@Override
+	public List<BsBook> getAllOnBooks() {
+		BsBookExample example=new BsBookExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andStatusEqualTo(1);
+		return bsBookMapper.selectByExample(example);
 	}
 
 }

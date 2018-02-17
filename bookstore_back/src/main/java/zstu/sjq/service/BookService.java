@@ -16,5 +16,9 @@ public interface BookService {
 	public void deleteBook(long bookId);
 	
 	public void updateBook(BsBook book);
+	
+	public BsBook getBook(long bookId);
+	
+	public List<BsBook> getAllOnBooks();
 
 }

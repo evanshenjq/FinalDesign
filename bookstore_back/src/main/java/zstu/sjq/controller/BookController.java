@@ -34,5 +34,31 @@ public class BookController {
 		
 		return Msg.success().add("books",page);
 	}
+	
+	//添加书籍
+	@RequestMapping("/addBook")
+	@ResponseBody
+	public Msg addBook(BsBook bsBook) {
+		bookService.addBook(bsBook);
+		
+		return Msg.success();
+	}
+	
+	@RequestMapping("/updateBook")
+	@ResponseBody
+	public Msg updateBook(BsBook bsBook) {
+		bookService.updateBook(bsBook);
+
+		return Msg.success();
+	}
+	
+	//下架书籍
+	@RequestMapping("/deleteBook")
+	@ResponseBody
+	public Msg deleteBook(Long bookId) {
+		bookService.deleteBook(bookId);
+		
+		return Msg.success();
+	}
 
 }
