@@ -10,6 +10,11 @@ import UserInfo from '@/page/UserInfo'
 import UserOrder from '@/page/UserOrder'
 import UpdatePassword from '@/page/UpdatePassword'
 import BookPage from '@/page/adminPage/BookPage'
+import OrderPage from '@/page/adminPage/OrderPage'
+import IndexPage from '@/page/adminPage/IndexPage'
+import UserPage from '@/page/adminPage/UserPage'
+import AddBookPage from '@/page/adminPage/AddBookPage'
+import UpdateBookPage from '@/page/adminPage/UpdateBookPage'
 
 Vue.use(Router)
 
@@ -72,9 +77,29 @@ export default new Router({
      },
      {
        path:'/orderPage',
-       name:'BookPage',
-       component:BookPage
-     }
+       name:'OrderPage',
+       component:OrderPage
+     },
+     {
+      path:'/userPage',
+      name:'UserPage',
+      component:UserPage
+    },
+    {
+      path:'/indexPage',
+      name:'IndexPage',
+      component:IndexPage
+    },
+    {
+      path:'/addBookPage',
+      name:'AddBookPage',
+      component:AddBookPage
+    },
+    {
+      path:'/updateBookPage',
+      name:'UpdateBookPage',
+      component:UpdateBookPage
+    },
 
   ]
 })

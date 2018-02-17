@@ -10,6 +10,10 @@
                     <td class="adminNav_function"><span class="glyphicon glyphicon-book"></span>书籍功能</td>
                 </tr>
                 <div class="margin"/>
+                <tr @click="turnCatPage()">
+                    <td class="adminNav_function"><span class="glyphicon glyphicon-th-list" ></span>类目功能</td>
+                </tr>
+                <div class="margin"/>
                 <tr @click="turnUserPage()">
                     <td class="adminNav_function"><span class="glyphicon glyphicon-user" ></span>用户功能</td>
                 </tr>
@@ -37,11 +41,14 @@ export default {
         turnUserPage(){
             this.$router.push('/userPage');
         },
+        turnCatPage(){
+            this.$router.push('/catPage');
+        },
         turnOrderPage(){
             this.$router.push('/orderPage');
         },
         turnIndexRecPage(){
-            this.$router.push('/indexRecPage');
+            this.$router.push('/indexPage');
         }
     }
   

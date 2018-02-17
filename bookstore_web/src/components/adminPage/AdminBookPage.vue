@@ -1,5 +1,26 @@
 <template>
   <div class="col-md-10">
+    <!-- 功能栏 -->
+    <div class="row" id="function_div">
+        <div class="col-md-1">
+            <button type="button" class="btn btn-success glyphicon glyphicon-plus" @click="showAddBookPage()"></button>
+        </div>
+        <div class="input-group input-group-sm col-md-offset-8 col-md-3">
+            <input type="text" class="form-control" aria-label="...">
+            <div class="input-group-btn">
+               <button type="button" class="btn btn-default">搜索</button>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="search_choice">
+        <div class="col-md-offset-8">
+            <input type="radio" name="radio" value="1">ID
+            <input type="radio" name="radio" value="2">书名
+            <input type="radio" name="radio" value="3" checked>状态
+        </div>
+    </div>
+
+    <!-- 书籍列表 -->
     <table class="table table-hover">
         <thead>
             <tr>
@@ -71,6 +92,7 @@
 
 <script>
 import {dateShow} from '@/assets/js/time.js'
+
 var self;
 export default {
     data(){
@@ -140,7 +162,7 @@ export default {
         myDateShow(time){
            return dateShow(time);
         },
-       statusShow(num){
+        statusShow(num){
            if(num==1){
                return "上架中";
            }
@@ -150,6 +172,9 @@ export default {
            else if(num==3){
                return "下架";
            }
+       },
+       showAddBookPage(){
+           this.$router.push('/addBookPage');
        },
        delBook(id){
            alert("删除id是"+id+"的书籍？？");
@@ -164,5 +189,10 @@ export default {
 </script>
 
 <style>
-
+#function_div{
+    margin-top:5px;
+}
+#search_choice{
+    margin-bottom: 8px;
+}
 </style>
