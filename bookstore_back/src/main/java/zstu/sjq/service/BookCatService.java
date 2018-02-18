@@ -16,5 +16,7 @@ public interface BookCatService {
 	public void deleteBookCat(long bookCatId);
 	
 	public void updateBookCat(BsBookCat bookCat);
+	
+	public BsBookCat getBookCat(long bookCatId);
 
 }

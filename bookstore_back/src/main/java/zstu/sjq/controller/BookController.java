@@ -1,6 +1,5 @@
 package zstu.sjq.controller;
 
-import java.awt.image.ImageFilter;
 import java.util.Date;
 import java.util.List;
 
@@ -96,9 +95,13 @@ public class BookController {
 	@RequestMapping("/deleteBook/{id}")
 	@ResponseBody
 	public Msg deleteBook(@PathVariable Long id) {
-		bookService.deleteBook(id);
+		try {
+			bookService.deleteBook(id);
+			return Msg.success().add("mes","删除成功！");
+		} catch (Exception e) {
+			return Msg.success().add("mes","书籍有订单关联，删除失败！");
+		}
 		
-		return Msg.success();
 	}
 	
 	//找到单本书籍信息

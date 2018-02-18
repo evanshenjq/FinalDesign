@@ -38,4 +38,9 @@ public class BookCatServiceImpl implements BookCatService {
 		bsBookCatMapper.updateByPrimaryKeySelective(bookCat);
 	}
 
+	@Override
+	public BsBookCat getBookCat(long bookCatId) {
+		return bsBookCatMapper.selectByPrimaryKey(bookCatId);
+	}
+
 }
