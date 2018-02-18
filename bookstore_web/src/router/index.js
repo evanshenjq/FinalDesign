@@ -9,12 +9,13 @@ import UserCenter from '@/page/UserCenter'
 import UserInfo from '@/page/UserInfo'
 import UserOrder from '@/page/UserOrder'
 import UpdatePassword from '@/page/UpdatePassword'
-import BookPage from '@/page/adminPage/BookPage'
+import BookPage from '@/page/adminPage/bookPage/BookPage'
 import OrderPage from '@/page/adminPage/OrderPage'
 import IndexPage from '@/page/adminPage/IndexPage'
 import UserPage from '@/page/adminPage/UserPage'
-import AddBookPage from '@/page/adminPage/AddBookPage'
-import UpdateBookPage from '@/page/adminPage/UpdateBookPage'
+import CatPage from '@/page/adminPage/catPage/CatPage'
+import AddBookPage from '@/page/adminPage/bookPage/AddBookPage'
+import UpdateBookPage from '@/page/adminPage/bookPage/UpdateBookPage'
 
 Vue.use(Router)
 
@@ -96,9 +97,14 @@ export default new Router({
       component:AddBookPage
     },
     {
-      path:'/updateBookPage',
+      path:'/updateBookPage/:bookId',
       name:'UpdateBookPage',
       component:UpdateBookPage
+    },
+    {
+      path:'/catPage',
+      name:'CatPage',
+      component:CatPage
     },
 
   ]

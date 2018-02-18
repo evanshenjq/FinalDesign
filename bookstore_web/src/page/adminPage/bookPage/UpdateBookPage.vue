@@ -8,27 +8,29 @@
   </div>
   <div class="row">
   <div class="col-md-offset-4 col-md-4">
-    <form id="addBookForm" enctype="multipart/form-data">
+    <form id="updateBookForm" enctype="multipart/form-data">
+            <input type="hidden" name="id" v-model="id">
+            <input type="hidden" name="created" v-model="created">            
             <div class="form-group">
                <label>图片</label>
-              <input type="file" id="imageInput" @change="getImage()" ref="input" name="image">
+              <input type="file" id="imageInput" @change="getImage()" ref="input" name="image" >
               <img :src="src" ref="img" id="preImage">
             </div>
             <div class="form-group">
               <label>书名</label>
-              <input type="text" class="form-control input_med" id="nameInput" v-model="name" name="name">
+              <input type="text" class="form-control input_med" id="nameInput" v-model="name" name="name" >
               <p v-if="showNameError">书名不能为空</p>
             </div>
             <div class="form-group">
-              <label>出版社</label>
+              <label>作者</label>
               <input type="text" class="form-control " id="publishInput" v-model="publish" name="publish">
-              <p v-if="showPublishError">出版社不能为空</p>
+              <p v-if="showPublishError">作者不能为空</p>
             </div>
             <div class="form-group">
               <label>类型</label>
               <div class="row">
                 <div class="col-md-4">
-                <select class="form-control" id="catSelect" style="width:150px" name="catId">
+                <select class="form-control" id="catSelect" style="width:150px" v-model="catId" name="catId">
                   <option v-for="cat in cats" :value="cat.id">{{cat.id}}.{{cat.name}}</option>
                 </select>
                 </div>
@@ -51,11 +53,23 @@
               <p v-if="showNumError">价格必须为正整数</p>
             </div>
             <div class="form-group">
+              <label>状态</label>
+              <div class="row">
+                <div class="col-md-4">
+                <select class="form-control" id="statusSelect" v-model="status" name="status">
+                  <option value=1>1.上架中</option>
+                  <option value=2>2.待上架</option>
+                  <option value=3>3.已下架</option>
+                </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
               <label>描述</label>
-              <textarea class="form-control" rows="3" id="descInput" name="descr"></textarea>
+              <textarea class="form-control" rows="3" id="descInput" v-model="descr" name="descr"></textarea>
             </div>
     </form>
-    <button type="button" class="btn btn-warning" @click="submitAddBook()">提交</button>
+    <button type="button" class="btn btn-warning" @click="submitUpdateBook()">提交</button>
   </div>
   </div>
 </div>
@@ -79,8 +93,14 @@ export default {
       showPriceError:true,
       name:"",
       publish:"",
+      catId:"",
       num:"",
-      price:""
+      price:"",
+      descr:"",
+      id:"",
+      created:"",
+      status:"",
+      book:""
     };
   },
   watch:{
@@ -117,8 +137,11 @@ export default {
   },
   mounted() {
     self=this;
+    let bookId=this.$route.params.bookId;
     $("#preImage").hide();
     this.getBookCats();
+    this.getBook(bookId);
+
   },
   methods: {
     getImage() {
@@ -141,36 +164,51 @@ export default {
     },
     getBookCats(){
       $.ajax({
-				url:"/zstu/getBookCatsNoPage",
-				type:"POST",
-				success:function(result){
-          self.cats=result.extend.cats;           
-				}
+			url:"/zstu/getBookCatsNoPage",
+			type:"POST",
+			success:function(result){
+            self.cats=result.extend.cats;           
+			}
       });
     },
-    submitAddBook(){
-        if(!(!this.showNameError&&!this.showPublishError&&!this.showNumError&&!this.showPriceError)){
-          //发送ajax添加书籍
-          var formData=new FormData(document.getElementById("addBookForm"));
-          // formData.append('image',$('#imageInput').val());
-          // formData.append('name',$('#nameInput').val());
-          // formData.append('publish',$('#publishInput').val());
-          // formData.append('cat',$('#catSelect').val());
-          // formData.append('price',$('#priceInput').val());
-          // formData.append('num',$('#numInput').val());
+    submitUpdateBook(){
+        if(!this.showNameError&&!this.showPublishError&&!this.showNumError&&!this.showPriceError){
+          var formData=new FormData(document.getElementById("updateBookForm"));
+          console.log(formData.get('created'));
           $.ajax({
-            url:"/zstu/addBook",
+            url:"/zstu/updateBook",
             data:formData,
             type:"POST",
             contentType: false,
             processData: false,
             success:function(result){
-              alert('添加成功');        
+              alert('更新成功');        
+              self.$router.push('/bookPage');
             }
           });
-          // console.log($('#imageInput').val());
-          //alert("123");
         }
+    },
+    getBook(bookId){
+        $.ajax({
+            url:"/zstu/getBook/"+bookId,
+			type:"POST",
+			success:function(result){
+                self.book=result.extend.book;     
+                if(result.extend.book.image!=""){
+                    $("#preImage").show();
+                    self.src=self.book.image;
+                }
+                self.id=self.book.id;
+                self.created=self.book.created;
+                self.name=self.book.name;
+                self.publish=self.book.publish;
+                self.catId=self.book.catId;
+                self.price=self.book.price;
+                self.num=self.book.num;
+                self.status=self.book.status;
+                self.descr=self.book.descr;      
+			}
+        });
     }
   }
 };
@@ -178,8 +216,8 @@ export default {
 
 <style>
 #preImage {
-  width: 190px;
-  height: 120px;
+  width: 130px;
+  height: 150px;
 }
 p{
   color: red;
@@ -188,3 +226,9 @@ p{
   margin-bottom: 70px;
 }
 </style>
+
+
+
+
+
+

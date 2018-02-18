@@ -177,10 +177,19 @@ export default {
            this.$router.push('/addBookPage');
        },
        delBook(id){
-           alert("删除id是"+id+"的书籍？？");
+           if(confirm("确认删除ID为"+id+"的书籍吗?")){
+               $.ajax({
+                   url:"/zstu/deleteBook/"+id,
+                   type:"POST",
+                   success:function(result){
+                       alert(result.extend.mes);
+                       location.reload();
+                   }
+               })
+           }
        },
        updateBook(id){
-           alert("更新id是"+id+"的书籍？？");
+           this.$router.push("/updateBookPage/"+id);
        }
        
 
