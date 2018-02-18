@@ -40,8 +40,7 @@ public class BookServiceImpl implements BookService {
 	
 	@Override
 	public BsBook getBook(long bookId) {
-		bsBookMapper.selectByPrimaryKey(bookId);
-		return null;
+		return bsBookMapper.selectByPrimaryKey(bookId);
 	}
 	
 	//获得所有上架的书籍

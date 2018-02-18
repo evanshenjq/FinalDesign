@@ -1,5 +1,7 @@
 package zstu.sjq.controller;
 
+import java.awt.image.ImageFilter;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,6 +23,7 @@ import zstu.sjq.bean.BsBook;
 import zstu.sjq.bean.Msg;
 import zstu.sjq.service.BookService;
 import zstu.sjq.service.ImageService;
+import zstu.sjq.utils.IDUtils;
 
 @Controller
 @PropertySource({"classpath:resource.properties"})
@@ -45,31 +49,66 @@ public class BookController {
 	}
 	
 	//添加书籍
-	@RequestMapping(value ="/addBook",method = { RequestMethod.POST},consumes = "multipart/form-data")
+	@RequestMapping(value ="/addBook",method = { RequestMethod.POST})
 	@ResponseBody
 	public Msg addBook(@RequestParam("image") MultipartFile image,HttpServletRequest request) {
 		String imageUrl=imageService.uploadFile(image);
-		System.out.println(imageUrl);
-		//BsBook bsBook=new BsBook();
-		//bookService.addBook(bsBook);
+		BsBook bsBook=new BsBook();
+		bsBook.setId(IDUtils.genRandomId());
+		bsBook.setName(request.getParameter("name"));
+		bsBook.setPublish(request.getParameter("publish"));
+		bsBook.setPrice(Double.valueOf(request.getParameter("price")));
+		bsBook.setImage(imageUrl);
+		bsBook.setDescr(request.getParameter("descr"));
+		bsBook.setStatus(2);
+		bsBook.setNum(Long.valueOf(request.getParameter("num")));
+		bsBook.setCatId(Long.valueOf(request.getParameter("catId")));
+		bsBook.setCreated(new Date());
+		bsBook.setUpdated(new Date());
+		bookService.addBook(bsBook);
 		return Msg.success();
 	}
 	
-	@RequestMapping("/updateBook")
+	@RequestMapping(value="/updateBook",method = { RequestMethod.POST})
 	@ResponseBody
-	public Msg updateBook(BsBook bsBook) {
+	public Msg updateBook(@RequestParam("image") MultipartFile image,HttpServletRequest request) {
+		BsBook bsBook=new BsBook();
+		if(image.getSize()!=0) {
+			String imageUrl=imageService.uploadFile(image);
+			bsBook.setImage(imageUrl);
+		}
+		bsBook.setId(Long.valueOf(request.getParameter("id")));
+		bsBook.setName(request.getParameter("name"));
+		bsBook.setPublish(request.getParameter("publish"));
+		bsBook.setPrice(Double.valueOf(request.getParameter("price")));
+		bsBook.setDescr(request.getParameter("descr"));
+		bsBook.setStatus(Integer.valueOf(request.getParameter("status")));
+		bsBook.setNum(Long.valueOf(request.getParameter("num")));
+		bsBook.setCatId(Long.valueOf(request.getParameter("catId")));
+		bsBook.setCreated(new Date(Long.valueOf(request.getParameter("created"))));
+		bsBook.setUpdated(new Date());
+		
 		bookService.updateBook(bsBook);
-
 		return Msg.success();
 	}
 	
 	//下架书籍
-	@RequestMapping("/deleteBook")
+	@RequestMapping("/deleteBook/{id}")
 	@ResponseBody
-	public Msg deleteBook(Long bookId) {
-		bookService.deleteBook(bookId);
+	public Msg deleteBook(@PathVariable Long id) {
+		bookService.deleteBook(id);
 		
 		return Msg.success();
+	}
+	
+	//找到单本书籍信息
+	@RequestMapping("/getBook/{id}")
+	@ResponseBody
+	public Msg getBook(@PathVariable Long id) {
+		
+		BsBook book=bookService.getBook(id);
+		
+		return Msg.success().add("book", book);
 	}
 
 }
