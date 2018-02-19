@@ -52,4 +52,14 @@ public class BookServiceImpl implements BookService {
 		return bsBookMapper.selectByExample(example);
 	}
 
+	@Override
+	public boolean hasBookId(long id) {
+		BsBook bsBook=bsBookMapper.selectByPrimaryKey(id);
+		if(bsBook!=null) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+
 }

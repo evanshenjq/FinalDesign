@@ -113,5 +113,19 @@ public class BookController {
 		
 		return Msg.success().add("book", book);
 	}
+	
+	
+	//检测是否有此Id
+	@RequestMapping("/hasBookId/{id}")
+	@ResponseBody
+	public Msg hasBookId(@PathVariable Long id) {
+		
+		if(bookService.hasBookId(id)) {
+			return Msg.success().add("hasId", true);
+		}else {
+			return Msg.success().add("hasId", false);
+		}
+		
+	}
 
 }

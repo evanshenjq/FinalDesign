@@ -1,0 +1,424 @@
+2018-02-19 12:20:06.281 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				Starting BookstoreBackApplication on DESKTOP-3NH79LM with PID 8640 (J:\git\FinalDesign\bookstore_back\target\classes started by evan in J:\git\FinalDesign\bookstore_back)
+2018-02-19 12:20:06.284 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				No active profile set, falling back to default profiles: default
+2018-02-19 12:20:06.449 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -
+				Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2e005c4b: startup date [Mon Feb 19 12:20:06 CST 2018]; root of context hierarchy
+2018-02-19 12:20:07.134 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+				HV000001: Hibernate Validator 5.3.6.Final
+2018-02-19 12:20:09.839 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer -
+				Tomcat initialized with port(s): 8090 (http)
+2018-02-19 12:20:09.856 [main] INFO  org.apache.catalina.core.StandardService -
+				Starting service [Tomcat]
+2018-02-19 12:20:09.857 [main] INFO  org.apache.catalina.core.StandardEngine -
+				Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-19 12:20:10.041 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2018-02-19 12:20:10.042 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader -
+				Root WebApplicationContext: initialization completed in 3594 ms
+2018-02-19 12:20:10.389 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean -
+				Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-19 12:20:10.398 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-19 12:20:10.401 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-19 12:20:10.402 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-19 12:20:10.403 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-19 12:20:11.986 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2e005c4b: startup date [Mon Feb 19 12:20:06 CST 2018]; root of context hierarchy
+2018-02-19 12:20:12.129 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCatsNoPage]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCatsNoPage()
+2018-02-19 12:20:12.134 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateBookCat]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.updateBookCat(javax.servlet.http.HttpServletRequest)
+2018-02-19 12:20:12.137 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addBookCat]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.addBookCat(javax.servlet.http.HttpServletRequest)
+2018-02-19 12:20:12.139 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCat/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCat(java.lang.Long)
+2018-02-19 12:20:12.143 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/deleteBookCat/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.deleteBookCat(java.lang.Long)
+2018-02-19 12:20:12.145 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCats]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCats(java.lang.Integer)
+2018-02-19 12:20:12.147 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addBook],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.addBook(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-02-19 12:20:12.148 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateBook],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.updateBook(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-02-19 12:20:12.148 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/deleteBook/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.deleteBook(java.lang.Long)
+2018-02-19 12:20:12.149 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getAllBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.getAllBooks(java.lang.Integer)
+2018-02-19 12:20:12.151 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBook/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.getBook(java.lang.Long)
+2018-02-19 12:20:12.152 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateUser]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.update(zstu.sjq.bean.BsUser,org.springframework.validation.BindingResult)
+2018-02-19 12:20:12.153 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/loginUser]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.loginUser(java.lang.String,java.lang.String)
+2018-02-19 12:20:12.154 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/checkName]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.checkUsername(java.lang.String)
+2018-02-19 12:20:12.155 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/registerUser],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.registerUser(zstu.sjq.bean.BsUser,org.springframework.validation.BindingResult)
+2018-02-19 12:20:12.165 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-19 12:20:12.166 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-19 12:20:12.235 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-19 12:20:12.235 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-19 12:20:12.323 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-19 12:20:12.987 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -
+				Registering beans for JMX exposure on startup
+2018-02-19 12:20:13.016 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8090"]
+2018-02-19 12:20:13.037 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8090"]
+2018-02-19 12:20:13.056 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool -
+				Using a shared selector for servlet write/read
+2018-02-19 12:20:13.087 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer -
+				Tomcat started on port(s): 8090 (http)
+2018-02-19 12:20:13.098 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				Started BookstoreBackApplication in 7.488 seconds (JVM running for 8.368)
+2018-02-19 12:23:15.629 [http-nio-8090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -
+				Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-19 12:23:15.629 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+				FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-19 12:23:15.689 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+				FrameworkServlet 'dispatcherServlet': initialization completed in 59 ms
+2018-02-19 13:25:46.197 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				Starting BookstoreBackApplication on DESKTOP-3NH79LM with PID 4976 (J:\git\FinalDesign\bookstore_back\target\classes started by evan in J:\git\FinalDesign\bookstore_back)
+2018-02-19 13:25:46.202 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				No active profile set, falling back to default profiles: default
+2018-02-19 13:25:46.313 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -
+				Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2e005c4b: startup date [Mon Feb 19 13:25:46 CST 2018]; root of context hierarchy
+2018-02-19 13:25:47.186 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+				HV000001: Hibernate Validator 5.3.6.Final
+2018-02-19 13:25:50.030 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer -
+				Tomcat initialized with port(s): 8090 (http)
+2018-02-19 13:25:50.055 [main] INFO  org.apache.catalina.core.StandardService -
+				Starting service [Tomcat]
+2018-02-19 13:25:50.057 [main] INFO  org.apache.catalina.core.StandardEngine -
+				Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-19 13:25:50.295 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2018-02-19 13:25:50.296 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader -
+				Root WebApplicationContext: initialization completed in 3983 ms
+2018-02-19 13:25:50.662 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean -
+				Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-19 13:25:50.671 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-19 13:25:50.673 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-19 13:25:50.674 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-19 13:25:50.674 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-19 13:25:52.454 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2e005c4b: startup date [Mon Feb 19 13:25:46 CST 2018]; root of context hierarchy
+2018-02-19 13:25:52.595 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCatsNoPage]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCatsNoPage()
+2018-02-19 13:25:52.599 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateBookCat]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.updateBookCat(javax.servlet.http.HttpServletRequest)
+2018-02-19 13:25:52.601 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCats]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCats(java.lang.Integer)
+2018-02-19 13:25:52.602 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addBookCat]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.addBookCat(javax.servlet.http.HttpServletRequest)
+2018-02-19 13:25:52.608 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCat/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCat(java.lang.Long)
+2018-02-19 13:25:52.611 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/deleteBookCat/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.deleteBookCat(java.lang.Long)
+2018-02-19 13:25:52.615 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/deleteBook/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.deleteBook(java.lang.Long)
+2018-02-19 13:25:52.623 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/hasBookId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.hasBookId(javax.servlet.http.HttpServletRequest)
+2018-02-19 13:25:52.625 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateBook],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.updateBook(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-02-19 13:25:52.626 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBook/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.getBook(java.lang.Long)
+2018-02-19 13:25:52.627 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getAllBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.getAllBooks(java.lang.Integer)
+2018-02-19 13:25:52.628 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addBook],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.addBook(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-02-19 13:25:52.633 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getNewBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getNewBooks()
+2018-02-19 13:25:52.634 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getHotBooksId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getHotBooksId()
+2018-02-19 13:25:52.634 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getHotBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getHotBooks()
+2018-02-19 13:25:52.635 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getNewBooksId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getNewBooksId()
+2018-02-19 13:25:52.638 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateUser]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.update(zstu.sjq.bean.BsUser,org.springframework.validation.BindingResult)
+2018-02-19 13:25:52.640 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/loginUser]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.loginUser(java.lang.String,java.lang.String)
+2018-02-19 13:25:52.641 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/registerUser],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.registerUser(zstu.sjq.bean.BsUser,org.springframework.validation.BindingResult)
+2018-02-19 13:25:52.645 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/checkName]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.checkUsername(java.lang.String)
+2018-02-19 13:25:52.655 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-19 13:25:52.658 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-19 13:25:52.730 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-19 13:25:52.731 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-19 13:25:52.864 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-19 13:25:53.802 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -
+				Registering beans for JMX exposure on startup
+2018-02-19 13:25:53.831 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8090"]
+2018-02-19 13:25:53.857 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8090"]
+2018-02-19 13:25:53.880 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool -
+				Using a shared selector for servlet write/read
+2018-02-19 13:25:53.921 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer -
+				Tomcat started on port(s): 8090 (http)
+2018-02-19 13:25:53.934 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				Started BookstoreBackApplication in 8.256 seconds (JVM running for 9.471)
+2018-02-19 13:30:57.044 [http-nio-8090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -
+				Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-19 13:30:57.044 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+				FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-19 13:30:57.103 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+				FrameworkServlet 'dispatcherServlet': initialization completed in 57 ms
+2018-02-19 13:37:42.365 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				Starting BookstoreBackApplication on DESKTOP-3NH79LM with PID 1880 (J:\git\FinalDesign\bookstore_back\target\classes started by evan in J:\git\FinalDesign\bookstore_back)
+2018-02-19 13:37:42.369 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				No active profile set, falling back to default profiles: default
+2018-02-19 13:37:42.491 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -
+				Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2e005c4b: startup date [Mon Feb 19 13:37:42 CST 2018]; root of context hierarchy
+2018-02-19 13:37:43.237 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+				HV000001: Hibernate Validator 5.3.6.Final
+2018-02-19 13:37:45.557 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer -
+				Tomcat initialized with port(s): 8090 (http)
+2018-02-19 13:37:45.576 [main] INFO  org.apache.catalina.core.StandardService -
+				Starting service [Tomcat]
+2018-02-19 13:37:45.578 [main] INFO  org.apache.catalina.core.StandardEngine -
+				Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-19 13:37:45.767 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2018-02-19 13:37:45.768 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader -
+				Root WebApplicationContext: initialization completed in 3277 ms
+2018-02-19 13:37:46.042 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean -
+				Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-19 13:37:46.053 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-19 13:37:46.054 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-19 13:37:46.055 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-19 13:37:46.055 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-19 13:37:47.536 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2e005c4b: startup date [Mon Feb 19 13:37:42 CST 2018]; root of context hierarchy
+2018-02-19 13:37:47.647 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCatsNoPage]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCatsNoPage()
+2018-02-19 13:37:47.649 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCats]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCats(java.lang.Integer)
+2018-02-19 13:37:47.650 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCat/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCat(java.lang.Long)
+2018-02-19 13:37:47.651 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addBookCat]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.addBookCat(javax.servlet.http.HttpServletRequest)
+2018-02-19 13:37:47.655 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateBookCat]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.updateBookCat(javax.servlet.http.HttpServletRequest)
+2018-02-19 13:37:47.663 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/deleteBookCat/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.deleteBookCat(java.lang.Long)
+2018-02-19 13:37:47.674 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getAllBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.getAllBooks(java.lang.Integer)
+2018-02-19 13:37:47.675 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addBook],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.addBook(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-02-19 13:37:47.676 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/deleteBook/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.deleteBook(java.lang.Long)
+2018-02-19 13:37:47.678 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/hasBookId/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.hasBookId(java.lang.Long)
+2018-02-19 13:37:47.678 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBook/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.getBook(java.lang.Long)
+2018-02-19 13:37:47.679 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateBook],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.updateBook(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-02-19 13:37:47.686 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getNewBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getNewBooks()
+2018-02-19 13:37:47.687 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getHotBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getHotBooks()
+2018-02-19 13:37:47.688 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getNewBooksId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getNewBooksId()
+2018-02-19 13:37:47.689 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getHotBooksId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getHotBooksId()
+2018-02-19 13:37:47.692 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateUser]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.update(zstu.sjq.bean.BsUser,org.springframework.validation.BindingResult)
+2018-02-19 13:37:47.693 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/checkName]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.checkUsername(java.lang.String)
+2018-02-19 13:37:47.693 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/registerUser],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.registerUser(zstu.sjq.bean.BsUser,org.springframework.validation.BindingResult)
+2018-02-19 13:37:47.694 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/loginUser]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.loginUser(java.lang.String,java.lang.String)
+2018-02-19 13:37:47.702 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-19 13:37:47.710 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-19 13:37:47.788 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-19 13:37:47.788 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-19 13:37:47.892 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-19 13:37:48.554 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -
+				Registering beans for JMX exposure on startup
+2018-02-19 13:37:48.581 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8090"]
+2018-02-19 13:37:48.598 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8090"]
+2018-02-19 13:37:48.616 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool -
+				Using a shared selector for servlet write/read
+2018-02-19 13:37:48.643 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer -
+				Tomcat started on port(s): 8090 (http)
+2018-02-19 13:37:48.659 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				Started BookstoreBackApplication in 6.764 seconds (JVM running for 7.554)
+2018-02-19 13:38:10.805 [http-nio-8090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -
+				Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-19 13:38:10.806 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+				FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-19 13:38:10.848 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+				FrameworkServlet 'dispatcherServlet': initialization completed in 42 ms
+2018-02-19 14:13:13.135 [http-nio-8090-exec-8] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -
+				Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "151894219527491s"
+2018-02-19 14:13:13.536 [http-nio-8090-exec-10] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -
+				Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "151894219527491s2"
+2018-02-19 14:13:13.985 [http-nio-8090-exec-1] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -
+				Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "151894219527491s23"
+2018-02-19 14:13:14.655 [http-nio-8090-exec-2] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -
+				Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "151894219527491s232"
+2018-02-19 14:13:23.230 [http-nio-8090-exec-3] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -
+				Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "151894219527491s23"
+2018-02-19 14:13:23.700 [http-nio-8090-exec-6] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -
+				Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "151894219527491s2"
+2018-02-19 14:13:23.827 [http-nio-8090-exec-5] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -
+				Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "151894219527491s"
+2018-02-19 14:13:26.684 [http-nio-8090-exec-1] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -
+				Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "15189421952749132144"
+2018-02-19 14:13:26.705 [http-nio-8090-exec-2] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -
+				Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "151894219527491321443"
+2018-02-19 14:13:27.181 [http-nio-8090-exec-3] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -
+				Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "15189421952749132144"
+2018-02-19 14:13:29.329 [http-nio-8090-exec-8] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -
+				Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "151894219527491s"
+2018-02-19 14:13:30.003 [http-nio-8090-exec-10] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -
+				Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "151894219527491ss"
+2018-02-19 14:13:30.180 [http-nio-8090-exec-1] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -
+				Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "151894219527491sss"
+2018-02-19 14:13:30.248 [http-nio-8090-exec-2] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -
+				Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "151894219527491ssss"
+2018-02-19 14:13:30.347 [http-nio-8090-exec-3] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -
+				Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "151894219527491sssss"
+2018-02-19 14:13:30.532 [http-nio-8090-exec-6] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -
+				Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "151894219527491ssssss"
+2018-02-19 14:13:39.939 [http-nio-8090-exec-5] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -
+				Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "151894219527491ssssss"
+2018-02-19 14:15:17.197 [http-nio-8090-exec-5] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -
+				Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "15189290814836533123"
+2018-02-19 14:15:17.401 [http-nio-8090-exec-4] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -
+				Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "151892908148365331231"
+2018-02-19 14:28:58.229 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				Starting BookstoreBackApplication on DESKTOP-3NH79LM with PID 1528 (J:\git\FinalDesign\bookstore_back\target\classes started by evan in J:\git\FinalDesign\bookstore_back)
+2018-02-19 14:28:58.233 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				No active profile set, falling back to default profiles: default
+2018-02-19 14:28:58.357 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -
+				Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2e005c4b: startup date [Mon Feb 19 14:28:58 CST 2018]; root of context hierarchy
+2018-02-19 14:28:58.925 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+				HV000001: Hibernate Validator 5.3.6.Final
+2018-02-19 14:29:01.165 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer -
+				Tomcat initialized with port(s): 8090 (http)
+2018-02-19 14:29:01.192 [main] INFO  org.apache.catalina.core.StandardService -
+				Starting service [Tomcat]
+2018-02-19 14:29:01.196 [main] INFO  org.apache.catalina.core.StandardEngine -
+				Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-19 14:29:01.380 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2018-02-19 14:29:01.382 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader -
+				Root WebApplicationContext: initialization completed in 3025 ms
+2018-02-19 14:29:01.679 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean -
+				Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-19 14:29:01.689 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-19 14:29:01.689 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-19 14:29:01.689 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-19 14:29:01.689 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-19 14:29:03.136 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2e005c4b: startup date [Mon Feb 19 14:28:58 CST 2018]; root of context hierarchy
+2018-02-19 14:29:03.235 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCatsNoPage]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCatsNoPage()
+2018-02-19 14:29:03.236 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCats]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCats(java.lang.Integer)
+2018-02-19 14:29:03.236 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addBookCat]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.addBookCat(javax.servlet.http.HttpServletRequest)
+2018-02-19 14:29:03.237 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateBookCat]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.updateBookCat(javax.servlet.http.HttpServletRequest)
+2018-02-19 14:29:03.239 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCat/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCat(java.lang.Long)
+2018-02-19 14:29:03.240 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/deleteBookCat/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.deleteBookCat(java.lang.Long)
+2018-02-19 14:29:03.245 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addBook],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.addBook(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-02-19 14:29:03.245 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getAllBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.getAllBooks(java.lang.Integer)
+2018-02-19 14:29:03.246 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateBook],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.updateBook(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-02-19 14:29:03.247 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBook/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.getBook(java.lang.Long)
+2018-02-19 14:29:03.247 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/hasBookId/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.hasBookId(java.lang.Long)
+2018-02-19 14:29:03.247 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/deleteBook/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.deleteBook(java.lang.Long)
+2018-02-19 14:29:03.251 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getHotBooksId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getHotBooksId()
+2018-02-19 14:29:03.251 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getNewBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getNewBooks()
+2018-02-19 14:29:03.252 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateHotBookId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.updateHotBookId(javax.servlet.http.HttpServletRequest)
+2018-02-19 14:29:03.253 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getNewBooksId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getNewBooksId()
+2018-02-19 14:29:03.253 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getHotBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getHotBooks()
+2018-02-19 14:29:03.254 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateNewBookId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.updateNewBookId(javax.servlet.http.HttpServletRequest)
+2018-02-19 14:29:03.256 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateUser]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.update(zstu.sjq.bean.BsUser,org.springframework.validation.BindingResult)
+2018-02-19 14:29:03.257 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/loginUser]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.loginUser(java.lang.String,java.lang.String)
+2018-02-19 14:29:03.258 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/registerUser],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.registerUser(zstu.sjq.bean.BsUser,org.springframework.validation.BindingResult)
+2018-02-19 14:29:03.258 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/checkName]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.checkUsername(java.lang.String)
+2018-02-19 14:29:03.263 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-19 14:29:03.264 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-19 14:29:03.320 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-19 14:29:03.321 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-19 14:29:03.414 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-19 14:29:04.085 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -
+				Registering beans for JMX exposure on startup
+2018-02-19 14:29:04.112 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8090"]
+2018-02-19 14:29:04.132 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8090"]
+2018-02-19 14:29:04.165 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool -
+				Using a shared selector for servlet write/read
+2018-02-19 14:29:04.197 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer -
+				Tomcat started on port(s): 8090 (http)
+2018-02-19 14:29:04.203 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				Started BookstoreBackApplication in 6.435 seconds (JVM running for 7.221)
+2018-02-19 14:29:20.353 [http-nio-8090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -
+				Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-19 14:29:20.354 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+				FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-19 14:29:20.389 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+				FrameworkServlet 'dispatcherServlet': initialization completed in 35 ms

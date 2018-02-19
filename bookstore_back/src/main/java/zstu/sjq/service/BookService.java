@@ -20,5 +20,7 @@ public interface BookService {
 	public BsBook getBook(long bookId);
 	
 	public List<BsBook> getAllOnBooks();
+	
+	public boolean hasBookId(long id);
 
 }

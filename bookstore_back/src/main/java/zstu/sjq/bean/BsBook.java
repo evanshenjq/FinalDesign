@@ -27,6 +27,8 @@ public class BsBook {
 
     private Double score;
 
+    private Integer sell;
+
     public Long getId() {
         return id;
     }
@@ -121,5 +123,13 @@ public class BsBook {
 
     public void setScore(Double score) {
         this.score = score;
+    }
+
+    public Integer getSell() {
+        return sell;
+    }
+
+    public void setSell(Integer sell) {
+        this.sell = sell;
     }
 }
