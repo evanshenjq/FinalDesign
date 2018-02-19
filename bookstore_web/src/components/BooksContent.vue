@@ -4,10 +4,10 @@
       <div id="filter">
           <nav class="navbar navbar-default row" id="filter_nav">
               <div class="col-md-2">
-                  <div class="filter">共有10000条结果</div>
+                  <div class="filter">当前{{nowPage}}页,总{{totalPage}}页,总共{{total}}条记录</div>
               </div>
-              <div class="col-md-2">
-                  <div class="filter">图书:小说</div>
+              <div class="col-md-2 col-md-offset-1">
+                  <div class="filter">图书:{{cat.name}}</div>
               </div>
               <div id="search_sort" class="col-md-offset-9">
                              <ul class="nav navbar-nav">
@@ -27,113 +27,37 @@
       <div id="books_content_div">
           <ul id="books_content">
 
-              <li class="book_content">
+              <li class="book_content" v-for="book in books">
                   <div class="row">
                       <div class="col-md-3">
                         <a>
-                            <img class="book_image" src="../assets/image/x.jpg">
+                            <img class="book_image_books" :src="book.image" @click="turnToBookPage(book.id)">
                         </a>    
                       </div>
                       <div class="col-md-7">
                           <div class="book_basic_info">
                             <div class="book_name">
-                                <a class="blue_href" >刺杀骑士团长(预售期间购买《刺杀骑士团长》一套，赠《挪威的森林新版》一本)</a>
-                            </div>
-                            <div class="book_author">
-                                <div>村上春树、 林少华</div>
+                                <a class="blue_href" @click="turnToBookPage(book.id)">{{book.name}}</a>
                             </div>
                             <div class="book_publish">
-                                <div>渣渣出版社 2013</div>
+                                <div>{{book.publish}}</div>
+                            </div>
+                             <div class="book_publish">
+                                <div>销量:{{book.sell}}本</div>
                             </div>
                           </div>
                           <div class="book_info">
                               <div class="book_price">
-                                <span class="money">$</span>
-                                <span class="book_price_num">8.7</span>
+                                <span class="money">￥</span>
+                                <span class="book_price_num">{{book.price}}</span>
                               </div>
                               <div class="book_score">
-                                <span class="book_score_num">★★★★★</span>
+                                <span class="book_score_num">★★★★★{{book.score}}</span>
                               </div>
                           </div>
                           <div class="book_function">
                             <div>
-                                <button class="btn btn-default btn-sm book_function_show">查看详情</button>
-                                <button class="btn btn-default btn-sm book_function_add">加入购物车</button>
-                            </div>
-                          </div>
-                      </div>
-                  </div>
-              </li>
-            
-                <li class="book_content">
-                  <div class="row">
-                      <div class="col-md-3">
-                        <a>
-                            <img class="book_image" src="../assets/image/y.jpg">
-                        </a>    
-                      </div>
-                      <div class="col-md-7">
-                          <div class="book_basic_info">
-                            <div class="book_name">
-                                <a class="blue_href" >刺杀骑士团长(预售期间购买《刺杀骑士团长》一套，赠《挪威的森林新版》一本)</a>
-                            </div>
-                            <div class="book_author">
-                                <div>村上春树、 林少华</div>
-                            </div>
-                            <div class="book_publish">
-                                <div>渣渣出版社 2013</div>
-                            </div>
-                          </div>
-                          <div class="book_info">
-                              <div class="book_price">
-                                <span class="money">$</span>
-                                <span class="book_price_num">8.7</span>
-                              </div>
-                              <div class="book_score">
-                                <span class="book_score_num">★★★★★</span>
-                              </div>
-                          </div>
-                          <div class="book_function">
-                            <div>
-                                <button class="btn btn-default btn-sm book_function_show">查看详情</button>
-                                <button class="btn btn-default btn-sm book_function_add">加入购物车</button>
-                            </div>
-                          </div>
-                      </div>
-                  </div>
-              </li>
-
-              <li class="book_content">
-                  <div class="row">
-                      <div class="col-md-3">
-                        <a>
-                            <img class="book_image" src="../assets/image/z.jpg">
-                        </a>    
-                      </div>
-                      <div class="col-md-7">
-                          <div class="book_basic_info">
-                            <div class="book_name">
-                                <a class="blue_href" >刺杀骑士团长(预售期间购买《刺杀骑士团长》一套，赠《挪威的森林新版》一本)</a>
-                            </div>
-                            <div class="book_author">
-                                <div>村上春树、 林少华</div>
-                            </div>
-                            <div class="book_publish">
-                                <div>渣渣出版社 2013</div>
-                            </div>
-                          </div>
-                          <div class="book_info">
-                              <div class="book_price">
-                                <span class="money">$</span>
-                                <span class="book_price_num">8.7</span>
-                              </div>
-                              <div class="book_score">
-                                <span class="book_score_num">★★★★★</span>
-                              </div>
-                          </div>
-                          <div class="book_function">
-                            <div>
-                                <button class="btn btn-default btn-sm book_function_show">查看详情</button>
+                                <button class="btn btn-default btn-sm book_function_show" @click="turnToBookPage(book.id)">查看详情</button>
                                 <button class="btn btn-default btn-sm book_function_add">加入购物车</button>
                             </div>
                           </div>
@@ -142,23 +66,30 @@
               </li>
           </ul>
       </div>
-
     <div class="col-md-offset-4" id="page_nav">
         <nav aria-label="Page navigation">
             <ul class="pagination">
-                <li>
-                <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
+                <li id="firstPageLi">
+                <a href="#">
+                    首页
                 </a>
                 </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
+                <li id="prePageLi">
+                <a href="#">
+                    &laquo;
+                </a>
+                </li>
+                <li v-for="pageNum in pageNums">
+                    <a href="#" @click="toPage(pageNum)">{{pageNum}}</a>
+                </li>
+                <li  id="nextPageLi">
+                <a href="#" >
+                    &raquo;
+                </a>
+                </li>
+                 <li id="lastPageLi">
+                <a href="#" >
+                    末页
                 </a>
                 </li>
             </ul>
@@ -169,7 +100,89 @@
 
 
 <script>
+var self;
 export default {
+    data(){
+        return{
+            books:'',
+            nowPage:'',
+            totalPage:'',
+            total:'',
+            pageNums:[],
+            cat:''
+        }
+    },
+    mounted(){
+        self=this;
+        this.getCatName();
+        this.toPage(1);
+    },
+    methods:{
+        toPage(pn){
+            let catId=this.$route.params.catId;
+            console.log(catId);
+            $.ajax({
+				url:"/zstu/getOnBooksByCat/"+catId,
+				data:{'pn':pn},
+				type:"POST",
+				success:function(result){
+                    //console.log(result);
+                    self.books=result.extend.books.list;
+                    //2.解析显示分页信息
+                    self.nowPage=result.extend.books.pageNum;
+                    self.totalPage=result.extend.books.pages;
+                    self.total=result.extend.books.total;
+                    //3.解释显示分页条
+                    self.buildPageNav(result);
+				}
+            });
+       },
+       buildPageNav(result){
+           this.resetPage();
+           self.pageNums=result.extend.books.navigatepageNums;
+           if(!result.extend.books.hasPreviousPage){
+               $('#firstPageLi').addClass('disabled');
+               $('#prePageLi').addClass('disabled');
+           }else{
+               $('#firstPageLi').click(function(){
+                   self.toPage(1)
+               });
+               $('#prePageLi').click(function(){
+                   self.toPage(result.extend.books.pageNum-1);
+               })
+           }
+            if(!result.extend.books.hasNextPage){
+               $('#lastPageLi').addClass('disabled');
+               $('#nextPageLi').addClass('disabled');
+           }else{
+               $('#lastPageLi').click(function(){
+                   self.toPage(result.extend.books.pages);
+               });
+               $('#nextPageLi').click(function(){
+                   self.toPage(result.extend.books.pageNum+1);
+               })
+           }
+        },
+        resetPage(){
+            $('#firstPageLi').removeClass('disabled');
+            $('#prePageLi').removeClass('disabled');
+            $('#lastPageLi').removeClass('disabled');
+            $('#nextPageLi').removeClass('disabled');
+        },
+        turnToBookPage(id){
+            this.$router.push("/bookInfo/"+id);
+        },
+        getCatName(){
+            let catId=this.$route.params.catId;
+            $.ajax({
+                url:"/zstu/getBookCat/"+catId,
+                type:"POST",
+                success:function(result){
+                    self.cat=result.extend.cat;
+                }
+            })
+        }
+    }
   
 }
 </script>
@@ -194,9 +207,9 @@ export default {
     width:100%;
     margin-top:25px;
 }
-.book_image{
+.book_image_books{
     height: 218px;
-    width: 218px;
+    width: 175px;
 }
 .blue_href{
     color: #0066c0;
@@ -205,7 +218,7 @@ export default {
     border-top-style:solid;
     border-top-width: 1px;
     border-top-color: #dddddd;
-    width:300px;
+    width:80%;
 }
 .book_name{
     font-size: 18px;

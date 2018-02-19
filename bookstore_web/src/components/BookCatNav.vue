@@ -38,6 +38,7 @@ export default {
       },
       turnBooksInfoPage(id){
           this.$router.push("/booksInfo/"+id);
+          location.reload();
       }
   }
 
