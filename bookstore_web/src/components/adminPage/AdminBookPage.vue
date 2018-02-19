@@ -29,6 +29,7 @@
                 <th>价格</th>
                 <th>数量</th>
                 <th>状态</th>
+                <th>销量</th>
                 <th>发布时间</th>
                 <th>更新时间</th>
                 <th>操作</th>
@@ -41,6 +42,7 @@
                 <td>￥{{book.price}}</td>
                 <td>{{book.num}}</td>
                 <td>{{statusShow(book.status)}}</td>
+                <td>{{book.sell}}</td>
                 <td>{{myDateShow(book.created)}}</td>
                 <td>{{myDateShow(book.updated)}}</td>
                 <td>

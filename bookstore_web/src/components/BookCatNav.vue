@@ -5,7 +5,7 @@
                 图书:
             </li>
             <li v-for="cat in cats" class="book_cats">
-                <a>
+                <a @click="turnBooksInfoPage(cat.id)">
                 {{cat.name}}
                 </a>>
             </li>
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+var self;
 export default {
   name:'BookCatNav',
   data(){
@@ -22,12 +23,24 @@ export default {
       };
   },
   mounted(){
-      this.cats=[
-          {id:1,name:"科学"},
-          {id:2,name:"小说"},
-          {id:3,name:"青春文学"},
-      ]
+      self=this;
+      this.getBookCats();
+  },
+  methods:{
+      getBookCats(){
+          $.ajax({
+              url:"/zstu/getBookCatsNoPage",
+              type:"POST",
+              success:function(result){
+                  self.cats=result.extend.cats;
+              }
+          });
+      },
+      turnBooksInfoPage(id){
+          this.$router.push("/booksInfo/"+id);
+      }
   }
+
 }
 </script>
 
@@ -50,6 +63,7 @@ export default {
     }
     .book_cats{
         margin-left: 10px;
+        margin-bottom: 3px;
         
     }
 </style>

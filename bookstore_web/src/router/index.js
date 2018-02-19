@@ -42,12 +42,12 @@ export default new Router({
       component:Register
     },
     {
-      path:'/booksInfo',
+      path:'/booksInfo/:catId',
       name:'BooksInfo',
       component:BooksInfo
     },
     {
-       path:'/bookInfo',
+       path:'/bookInfo/:bookId',
        name:'BookInfo',
        component:BookInfo
      },

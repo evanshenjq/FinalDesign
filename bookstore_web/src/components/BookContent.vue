@@ -3,7 +3,7 @@
     <!-- 导航条 -->
     <div id="guideHeader">
         <span>
-            <a class="guideHeader">
+            <a class="guideHeader" @click="turnIndexPage()">
                 图书
             </a>    
         </span>>
@@ -18,32 +18,29 @@
         <div class="row">
             <div class="col-md-2 book_image_div">
                 <a>
-                    <img id="book_image"  src="../assets/image/z1.jpg">
+                    <img id="book_image_one"  :src="book.image">
                 </a> 
             </div>
-            <div class="col-md-8" id="book_info">
+            <div class="col-md-8" id="book_info_one">
                 <div class="book_basic_info">
                             <div class="book_name">
-                                <div>刺杀骑士团长(预售期间购买《刺杀骑士团长》一套，赠《挪威的森林新版》一本)</div>
+                                <div>{{book.name}}</div>
                             </div>
                             <div class="book_author">
-                                <div>村上春树、 林少华</div>
-                            </div>
-                            <div class="book_publish">
-                                <div>渣渣出版社 2013</div>
+                                <div>{{book.publish}}</div>
                             </div>
                             <div class="book_score">
-                                <span class="book_score_num">★★★★★</span>
+                                <span class="book_score_num">★★★★★{{book.score}}</span>
                               </div>
                           </div>
-                          <div class="book_info">
+                          <div class="book_info_one">
                               <div class="book_desc">
                                   <div id="book_desc_title">书籍简介:</div>
-                                  <div id="book_desc">《白夜行》讲述了多年以前，大阪的一栋废弃建筑中发现一名遭利器刺死男子的故事。案件扑朔迷离，始终悬而未决。此后20年间，案件滋生出的恶逐渐萌芽生长，绽放出恶之花。案件相关者的人生逐渐被越来越重的阴影笼罩……</div>
+                                  <div id="book_desc">{{book.descr}}</div>
                               </div>
                               <div class="book_price">
-                                <span class="money">$</span>
-                                <span class="book_price_num">8.7</span>
+                                <span class="money">￥</span>
+                                <span class="book_price_num">{{book.price}}</span>
                               </div>
                           </div>
                           <div class="book_function">
@@ -53,14 +50,38 @@
                           </div>
             </div>
         </div>
-
     </div>
 
   </div>
 </template>
 
 <script>
+var self;
 export default {
+    data(){
+        return{
+            book:"",
+        }
+    },
+    mounted(){
+        self=this;
+        this.getBookInfo();
+    },
+    methods:{
+        turnIndexPage(){
+            this.$router.push("/")
+        },
+        getBookInfo(){
+            let bookId=this.$route.params.bookId;
+            $.ajax({
+                url:"/zstu/getBook/"+bookId,
+                type:"POST",
+                success:function(result){
+                    self.book=result.extend.book;
+                }
+            });
+        },
+    }
   
 }
 </script>
@@ -80,11 +101,10 @@ a{
     margin-left: 50px;
     margin-top:40px;
 }
-#book_image{
+#book_image_one{
     width:190px;
     height: 270px;
 }
-
 .book_content{
     border-bottom-style:solid;
     border-bottom-width: 1px;
@@ -92,12 +112,8 @@ a{
     width:700px;
     margin-top:25px;
 }
-.book_image{
-    height: 218px;
-    width: 218px;
-}
 
-.book_info{
+.book_info_one{
     border-top-style:solid;
     border-top-width: 1px;
     border-top-color: #dddddd;

@@ -3,10 +3,10 @@
       <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="col-md-1 col-md-offset-8">
-            <button class="btn btn-link" id="login_btn" @click='turnLoginPage()'>您好，登陆账户</button>
+            <button class="btn btn-link" id="login_btn_index" @click='turnLoginPage()'>您好，登陆账户</button>
             </div>
             <div class="col-md-1">
-            <button class="btn btn-link" id="register_btn" @click="turnRegisterPage()">免费注册</button>
+            <button class="btn btn-link" id="register_btn_index" @click="turnRegisterPage()">免费注册</button>
             </div>
             <div class="col-md-1">
             <button class="btn btn-link" id="cart_btn">
@@ -40,12 +40,12 @@ export default {
 
 
 <style>
-#login_btn{
+#login_btn_index{
     margin-top: 5px;
     font-size: 15px;
     font-weight:bolder;
 }
-#register_btn{
+#register_btn_index{
     margin-top: 5px;
     margin-left: 20px;
     font-size: 15px;
