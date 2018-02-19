@@ -128,4 +128,18 @@ public class BookController {
 		
 	}
 
+	
+	//根据分类查找
+	@RequestMapping("/getOnBooksByCat/{catId}")
+	@ResponseBody
+	public Msg getOnBooksByCat(@PathVariable Long catId,@RequestParam(value="pn",defaultValue="1")Integer pn) {
+		
+		
+		PageHelper.startPage(pn,5);
+		List<BsBook> list=bookService.getOnBooksByCatId(catId);
+		//连续显示页码
+		PageInfo<BsBook> page = new PageInfo<BsBook>(list,5);
+		
+		return Msg.success().add("books", page);
+	}
 }

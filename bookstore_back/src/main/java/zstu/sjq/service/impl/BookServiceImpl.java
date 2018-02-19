@@ -62,4 +62,15 @@ public class BookServiceImpl implements BookService {
 		}
 	}
 
+	//根据种类得到对应商家的书籍
+	@Override
+	public List<BsBook> getOnBooksByCatId(long catId) {
+		
+		BsBookExample example=new BsBookExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andStatusEqualTo(1);
+		criteria.andCatIdEqualTo(catId);
+		return bsBookMapper.selectByExample(example);
+	}
+
 }
