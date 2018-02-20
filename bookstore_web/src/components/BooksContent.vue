@@ -27,7 +27,7 @@
       <div id="books_content_div">
           <ul id="books_content">
 
-              <li class="book_content" v-for="book in books">
+              <li class="books_content" v-for="book in books">
                   <div class="row">
                       <div class="col-md-3">
                         <a>
@@ -46,13 +46,13 @@
                                 <div>销量:{{book.sell}}本</div>
                             </div>
                           </div>
-                          <div class="book_info">
+                          <div class="books_info">
                               <div class="book_price">
                                 <span class="money">￥</span>
                                 <span class="book_price_num">{{book.price}}</span>
                               </div>
                               <div class="book_score">
-                                <span class="book_score_num">★★★★★{{book.score}}</span>
+                                <span class="book_score_num">{{showScoreStars(book.score)}}</span>
                               </div>
                           </div>
                           <div class="book_function">
@@ -181,6 +181,38 @@ export default {
                     self.cat=result.extend.cat;
                 }
             })
+        },
+        showScoreStars(score){
+            if(score<1){
+                return "☆"+score;
+            }
+            else if(socre=1){
+                return "★"+score;
+            }
+            else if(score<2&&score>1){
+                return "★☆"+score;
+            }
+            else if(score=2){
+                return "★★"+score;
+            }
+             else if(score<3&&score>2){
+                return "★★☆"+score;
+            }
+            else if(score=3){
+                return "★★★"+score;
+            }
+            else if(score<4&&score>3){
+                return "★★★☆"+score;
+            }
+            else if(score=5){
+                return "★★★★"+score;
+            }
+            else if(score<5&&score>4){
+                return "★★★★☆"+score;
+            }
+            else if(score=5){
+                return "★★★★★"+score;
+            }
         }
     }
   
@@ -200,7 +232,7 @@ export default {
 #filter_choose{
     font-size: 14px;
 }
-.book_content{
+.books_content{
     border-bottom-style:solid;
     border-bottom-width: 1px;
     border-bottom-color: #dddddd;
@@ -214,7 +246,7 @@ export default {
 .blue_href{
     color: #0066c0;
 }
-.book_info{
+.books_info{
     border-top-style:solid;
     border-top-width: 1px;
     border-top-color: #dddddd;

@@ -3,14 +3,14 @@
       <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="col-md-1 col-md-offset-8">
-            <button class="btn btn-link" id="login_btn_index" @click='turnLoginPage()'>您好，登陆账户</button>
+            <button class="btn btn-link" id="login_btn_index" @click='turnLoginPage()'>您好，{{loginUserName}}</button>
             </div>
             <div class="col-md-1">
-            <button class="btn btn-link" id="register_btn_index" @click="turnRegisterPage()">免费注册</button>
+            <button class="btn btn-link" id="register_btn_index" @click="turnRegisterPage()">{{registerAndLogout}}</button>
             </div>
             <div class="col-md-1">
             <button class="btn btn-link" id="cart_btn">
-                <span class="glyphicon glyphicon-shopping-cart">购物车</span>
+                <span class="glyphicon glyphicon-shopping-cart" @click="turnCartPage()">购物车</span>
             </button>
             </div>
         </div>
@@ -23,15 +23,50 @@ export default {
   name:"LoginHeader",
   data(){
     return{
+        loginUserName:"登陆账户",
+        registerAndLogout:"免费注册"
 
     };
   },
+  mounted(){
+      this.judgeLogin();
+  },
   methods:{
     turnLoginPage(){
-        this.$router.push('/login');
+        let userId=sessionStorage.getItem('userId');
+        if(userId!=null){
+            this.$router.push('/userCenter/'+userId);
+        }else{
+            this.$router.push('/login');
+        }
     },
     turnRegisterPage(){
-        this.$router.push('/register');
+        let userId=sessionStorage.getItem('userId');
+        if(userId!=null){
+            sessionStorage.removeItem('userId');
+            sessionStorage.removeItem('userName');
+            this.$router.push('/');
+            location.reload();
+        }else{
+            this.$router.push('/register');
+        }
+    },
+    turnCartPage(){
+        let userId=sessionStorage.getItem('userId');
+        if(userId!=null){
+            //跳转到购物车
+            
+        }else{
+            this.$router.push('/login');
+        }
+    },
+    judgeLogin(){
+        let userId=sessionStorage.getItem('userId');
+        let userName=sessionStorage.getItem('userName');
+        if(userId!=null){
+            this.loginUserName=userName;
+            this.registerAndLogout="注销";
+        }
     }
     
   }

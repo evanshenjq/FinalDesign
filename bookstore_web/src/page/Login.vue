@@ -10,18 +10,20 @@
             <div class="form-group">
                 <label for="inputEmail3" class="username_label">用户名:</label>
                 <div>
-                <input type="email" class="form-control" id="inputUsername" >
+                <input type="email" class="form-control" id="inputUsername" v-model="username" >
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputPassword3" class="password_label">密码:</label>
                 <div>
-                <input type="password" class="form-control" id="inputPassword">
+                <input type="password" class="form-control" id="inputPassword" v-model="password">
+                <p id="login_error"></p>
                 </div>
             </div>
+            
             <div class="form-group">
                 <div>
-                <button type="button" class="btn btn-default" id="login_btn">登陆</button>
+                <button type="button" class="btn btn-default" id="login_btn" @click="login()">登陆</button>
                 </div>
             </div>
             <div class="beauty_line">  
@@ -44,14 +46,47 @@
 
 
 <script>
+var self;
 import LogoHeader from '@/common/LogoHeader'
 export default {
     components:{
         LogoHeader
     },
+    data(){
+        return{
+            username:"",
+            password:"",
+
+        }
+    },
+    mounted(){
+        self=this;
+    },
     methods:{
         turnToRegisterPage(){
             this.$router.push("/register");
+        },
+        login(){
+            let formData=new FormData();
+            formData.append('username',this.username);
+            formData.append('password',this.password);
+            $.ajax({
+                url:"/zstu/loginUser",
+                data:formData,
+                type:"POST",
+                contentType: false,  
+                processData: false,
+                success:function(result){
+                    if(result.code==200){
+                        $('#login_error').html(result.extend.va_msg);
+                    }else{
+                        sessionStorage.setItem('userId',result.extend.user.id);
+                        sessionStorage.setItem('userName',result.extend.user.name);
+                        alert("登陆成功！返回首页！");
+                        self.$router.push('/');
+                    }
+                }
+            });
         }
     }
 }
@@ -101,6 +136,9 @@ export default {
 #author{
     margin-top: 120px;
     text-align: center;
+}
+#login_error{
+    color: red;
 }
 </style>
 

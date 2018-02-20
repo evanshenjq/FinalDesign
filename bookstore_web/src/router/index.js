@@ -52,22 +52,22 @@ export default new Router({
        component:BookInfo
      },
      {
-      path:'/userCenter',
+      path:'/userCenter/:userId',
       name:'UserCenter',
       component:UserCenter
      },
      {
-      path:'/userOrder',
+      path:'/userOrder/:userId',
       name:'UserOrder',
       component:UserOrder
      },
      {
-      path:'/userInfo',
+      path:'/userInfo/:userId',
       name:'UserInfo',
       component:UserInfo
      },
      {
-      path:'/updatePassword',
+      path:'/updatePassword/:userId',
       name:'UpdatePassword',
       component:UpdatePassword
      },

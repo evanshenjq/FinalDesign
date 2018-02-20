@@ -30,7 +30,7 @@
                                 <div>{{book.publish}}</div>
                             </div>
                             <div class="book_score">
-                                <span class="book_score_num">★★★★★{{book.score}}</span>
+                                <span class="book_score_num">{{showScoreStars(book.score)}}</span>
                               </div>
                           </div>
                           <div class="book_info_one">
@@ -81,6 +81,38 @@ export default {
                 }
             });
         },
+        showScoreStars(score){
+            if(score<1){
+                return "☆"+score;
+            }
+            else if(socre=1){
+                return "★"+score;
+            }
+            else if(score<2&&score>1){
+                return "★☆"+score;
+            }
+            else if(score=2){
+                return "★★"+score;
+            }
+             else if(score<3&&score>2){
+                return "★★☆"+score;
+            }
+            else if(score=3){
+                return "★★★"+score;
+            }
+            else if(score<4&&score>3){
+                return "★★★☆"+score;
+            }
+            else if(score=5){
+                return "★★★★"+score;
+            }
+            else if(score<5&&score>4){
+                return "★★★★☆"+score;
+            }
+            else if(score=5){
+                return "★★★★★"+score;
+            }
+        }
     }
   
 }
