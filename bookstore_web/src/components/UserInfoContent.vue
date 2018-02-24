@@ -3,7 +3,7 @@
     <div class="row">
            <div id="guideHeader" class="col-md-offset-4">
                 <span>
-                    <a class="guideHeader" href="/userCenter">
+                    <a class="guideHeader" @click="turnToUserCenterPage()">
                         我的账户
                     </a>    
                 </span>>
@@ -28,7 +28,7 @@
                                 用户名 :
                             </div>
                             <div>
-                                沈佳琦
+                                {{user.username}}
                             </div>
                         </div>
                     </div>
@@ -54,17 +54,20 @@
                             <form>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">姓名:</label>
-                                    <input type="email" class="form-control" id="input_name" placeholder="name">
+                                    <input type="text" class="form-control" id="input_name" v-model="name">
+                                    <p v-if="showNameError">姓名不能为空</p>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">手机号码:</label>
-                                    <input type="password" class="form-control" id="input_phone" placeholder="phone">
+                                    <input type="text" class="form-control" id="input_phone" v-model="phone">
+                                    <p v-if="showPhoneError">请输入正确的手机号码</p>
                                 </div>
                                  <div class="form-group">
                                     <label for="exampleInputPassword1">地址:</label>
-                                    <input type="password" class="form-control" id="input_address" placeholder="address">
+                                    <input type="text" class="form-control" id="input_address" v-model="address">
                                 </div>
-                                <button type="button" class="btn btn-default userInfo_save_btn">保存</button>
+                                <h5>更新于{{myDateShow(user.updated)}}</h5>
+                                <button type="button" class="btn btn-default userInfo_save_btn" @click="saveUpdateUserInfo()">保存</button>
                             </form>
                         </div>
                     </div>
@@ -76,16 +79,91 @@
 </template>
 
 <script>
+var self;
+import {dateShow} from '@/assets/js/time.js'
+
 export default {
     data(){
         return{
-
-        }
+            user:'',
+            name:'',
+            phone:'',
+            address:'',
+            showNameError:false,
+            showPhoneError:false
+        };
+    },
+    watch:{
+        phone:function(){
+            let reg=/^[1][3,4,5,7,8][0-9]{9}$/;
+            if(reg.test(this.phone)){
+                this.showPhoneError=false;
+                 $('.userInfo_big_box').css('height','335px');
+            }else{
+                this.showPhoneError=true;
+                 $('.userInfo_big_box').css('height','355px');
+            }
+        },
+        name:function(){
+            if(this.name!=""){
+                this.showNameError=false;
+                 $('.userInfo_big_box').css('height','335px');
+            }else{
+                this.showNameError=true;
+                $('.userInfo_big_box').css('height','355px');
+            }
+        },
+    },
+    mounted(){
+        self=this;
+        this.getUserInfoById();
     },
     methods:{
         turnUpdatePassWordPage(){
-            this.$router.push('/updatePassword');
-        }
+            let userId=sessionStorage.getItem('userId');
+            this.$router.push('/updatePassword/'+userId);
+        },
+        turnToUserCenterPage(){
+            let userId=sessionStorage.getItem('userId');
+            this.$router.push('/userCenter/'+userId);
+        },
+        getUserInfoById(){
+            let userId=sessionStorage.getItem('userId');
+            $.ajax({
+                url:"/zstu/getUserById/"+userId,
+                type:"POST",
+                success:function(result){
+                    self.user=result.extend.user;
+                    self.name=result.extend.user.name;
+                    self.phone=result.extend.user.phone;
+                    self.address=result.extend.user.address;
+                }
+            });
+        },
+        saveUpdateUserInfo(){
+            if(!this.showNameError&&!this.showPhoneError){
+                let formData=new FormData();
+                let userId=sessionStorage.getItem('userId');
+                formData.append('id',userId);
+                formData.append('name',this.name);
+                formData.append('phone',this.phone);
+                formData.append('address',this.address);
+                $.ajax({
+                    url:"/zstu/updateUser",
+                    type:"POST",
+                    data:formData,
+                    contentType: false,
+                    processData: false,
+                    success:function(result){
+                        alert("更新成功！");
+                        location.reload();
+                    }
+                });
+            }
+        },
+        myDateShow(time){
+           return dateShow(time);
+        },
     }
 }
 </script>
@@ -109,7 +187,7 @@ export default {
     border-width: 0.8px;
     border-color: #dddddd;
     max-width: 100%;    
-    height:290px;
+    height:335px;
 }
 .userInfo_title{
     margin-top:10px;
@@ -125,5 +203,11 @@ export default {
 .userInfo_save_btn{
     margin-top:8px;
     background-color: #f1c556;
+}
+p{
+    color: red;
+}
+h5{
+    margin-top: 23px;
 }
 </style>

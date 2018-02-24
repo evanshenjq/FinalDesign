@@ -44,11 +44,14 @@
 <script>
 export default {
     data(){
+        return{
 
+        };
     },
     methods:{
         turnUserInfoPage(){
-            this.$router.push('/userInfo');
+            var userId=sessionStorage.getItem('userId');
+            this.$router.push('/userInfo/'+userId);
         }
     }
   }
