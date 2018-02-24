@@ -1,0 +1,54 @@
+2018-01-23 10:46:41.248 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				Starting BookstoreBackApplication on H2600-0440L with PID 14924 (C:\moses\FinalDesign\bookstore_back\target\classes started by moses.shen in C:\moses\FinalDesign\bookstore_back)
+2018-01-23 10:46:41.253 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				No active profile set, falling back to default profiles: default
+2018-01-23 10:46:41.473 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -
+				Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3b2da18f: startup date [Tue Jan 23 10:46:41 CST 2018]; root of context hierarchy
+2018-01-23 10:46:42.660 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+				HV000001: Hibernate Validator 5.3.6.Final
+2018-01-23 10:46:43.348 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner -
+				No MyBatis mapper was found in '[zstu.sjq]' package. Please check your configuration.
+2018-01-23 10:46:46.447 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer -
+				Tomcat initialized with port(s): 8090 (http)
+2018-01-23 10:46:46.480 [main] INFO  org.apache.catalina.core.StandardService -
+				Starting service [Tomcat]
+2018-01-23 10:46:46.482 [main] INFO  org.apache.catalina.core.StandardEngine -
+				Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-01-23 10:46:46.752 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2018-01-23 10:46:46.755 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader -
+				Root WebApplicationContext: initialization completed in 5282 ms
+2018-01-23 10:46:47.120 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean -
+				Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-23 10:46:47.127 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-23 10:46:47.128 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-01-23 10:46:47.129 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-01-23 10:46:47.129 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'requestContextFilter' to: [/*]
+2018-01-23 10:46:47.982 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3b2da18f: startup date [Tue Jan 23 10:46:41 CST 2018]; root of context hierarchy
+2018-01-23 10:46:48.167 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-23 10:46:48.169 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-23 10:46:48.330 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-23 10:46:48.348 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-23 10:46:48.487 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-23 10:46:50.276 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -
+				Registering beans for JMX exposure on startup
+2018-01-23 10:46:50.356 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8090"]
+2018-01-23 10:46:50.377 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8090"]
+2018-01-23 10:46:50.411 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool -
+				Using a shared selector for servlet write/read
+2018-01-23 10:46:50.456 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer -
+				Tomcat started on port(s): 8090 (http)
+2018-01-23 10:46:50.464 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				Started BookstoreBackApplication in 9.965 seconds (JVM running for 11.83)

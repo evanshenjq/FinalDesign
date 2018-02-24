@@ -1,21 +1,21 @@
 package zstu.sjq.controller;
 
+
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 
 import zstu.sjq.bean.*;
 import zstu.sjq.service.UserService;
@@ -74,11 +74,40 @@ public class UserController {
 	
 	
 	//用户更新信息
-		@RequestMapping("/updateUser")
-		@ResponseBody
-		public Msg update(@Valid BsUser user) {
+	@RequestMapping("/updateUser")
+	@ResponseBody
+	public Msg updateUser(BsUser user) {
+		
+		user.setUpdated(new Date());
+		
+		userService.updateUser(user);
 			
-			return Msg.success();
-		}
+		return Msg.success();
+	}
+		
+	//根据ID得到用户信息
+	@RequestMapping("/getUserById/{id}")
+	@ResponseBody
+	public Msg getUserById(@PathVariable long id) {
+		
+		BsUser user=userService.getUserById(id);
+		
+		return Msg.success().add("user", user);
+		
+	}
+	
+	//得到所有用户信息
+	@RequestMapping("/getAllUsers")
+	@ResponseBody
+	public Msg getAllUsers(@RequestParam(value="pn",defaultValue="1")Integer pn) {
+		
+		//每页大小
+		PageHelper.startPage(pn,10);
+		List<BsUser> list=userService.getAllUsers();
+		//连续显示页码
+		PageInfo<BsUser> page = new PageInfo<BsUser>(list,5);
+				
+		return Msg.success().add("users",page);
+	}
 
 }

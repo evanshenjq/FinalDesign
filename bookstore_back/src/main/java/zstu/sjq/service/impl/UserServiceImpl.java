@@ -40,7 +40,6 @@ public class UserServiceImpl implements UserService {
 		bsUserMapper.insert(user);
 	}
 
-
 	@Override
 	public boolean hasUser(String username) {
 		BsUserExample example=new BsUserExample();
@@ -52,10 +51,20 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
-
 	@Override
 	public void updateUser(BsUser user) {
 		bsUserMapper.updateByPrimaryKeySelective(user);
+	}
+
+	@Override
+	public BsUser getUserById(long id) {
+		return bsUserMapper.selectByPrimaryKey(id);
+	}
+
+
+	@Override
+	public List<BsUser> getAllUsers() {
+		return bsUserMapper.selectByExample(null);
 	}
 
 }

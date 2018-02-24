@@ -1,5 +1,7 @@
 package zstu.sjq.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 
@@ -17,4 +19,11 @@ public interface UserService {
 		
 	//更改账户信息
 	public void updateUser(BsUser user);
+	
+	//得到账户信息
+	public BsUser getUserById(long id);
+	
+	//得到所有用户信息
+	public List<BsUser> getAllUsers();
+	
 }
