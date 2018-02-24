@@ -16,6 +16,7 @@ import UserPage from '@/page/adminPage/UserPage'
 import CatPage from '@/page/adminPage/catPage/CatPage'
 import AddBookPage from '@/page/adminPage/bookPage/AddBookPage'
 import UpdateBookPage from '@/page/adminPage/bookPage/UpdateBookPage'
+import UserCart from '@/page/UserCart'
 
 Vue.use(Router)
 
@@ -106,6 +107,11 @@ export default new Router({
       name:'CatPage',
       component:CatPage
     },
+    {
+      path:'/userCart/:userId',
+      name:'UserCart',
+      component:UserCart
+    }
 
   ]
 })

@@ -55,7 +55,7 @@ export default {
         let userId=sessionStorage.getItem('userId');
         if(userId!=null){
             //跳转到购物车
-            
+            this.$router.push('/userCart/'+userId);
         }else{
             this.$router.push('/login');
         }
