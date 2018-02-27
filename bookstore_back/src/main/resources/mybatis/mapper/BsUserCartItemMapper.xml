@@ -8,7 +8,6 @@
     <result column="book_name" property="bookName" jdbcType="VARCHAR" />
     <result column="num" property="num" jdbcType="BIGINT" />
     <result column="price" property="price" jdbcType="BIGINT" />
-    <result column="total" property="total" jdbcType="BIGINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -69,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, cart_id, book_id, book_name, num, price, total
+    id, cart_id, book_id, book_name, num, price
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="zstu.sjq.bean.BsUserCartItemExample" >
     select
@@ -103,11 +102,9 @@
   </delete>
   <insert id="insert" parameterType="zstu.sjq.bean.BsUserCartItem" >
     insert into bs_user_cart_item (id, cart_id, book_id, 
-      book_name, num, price, 
-      total)
+      book_name, num, price)
     values (#{id,jdbcType=BIGINT}, #{cartId,jdbcType=BIGINT}, #{bookId,jdbcType=BIGINT}, 
-      #{bookName,jdbcType=VARCHAR}, #{num,jdbcType=BIGINT}, #{price,jdbcType=BIGINT}, 
-      #{total,jdbcType=BIGINT})
+      #{bookName,jdbcType=VARCHAR}, #{num,jdbcType=BIGINT}, #{price,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="zstu.sjq.bean.BsUserCartItem" >
     insert into bs_user_cart_item
@@ -130,9 +127,6 @@
       <if test="price != null" >
         price,
       </if>
-      <if test="total != null" >
-        total,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -152,9 +146,6 @@
       </if>
       <if test="price != null" >
         #{price,jdbcType=BIGINT},
-      </if>
-      <if test="total != null" >
-        #{total,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -185,9 +176,6 @@
       <if test="record.price != null" >
         price = #{record.price,jdbcType=BIGINT},
       </if>
-      <if test="record.total != null" >
-        total = #{record.total,jdbcType=BIGINT},
-      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -200,8 +188,7 @@
       book_id = #{record.bookId,jdbcType=BIGINT},
       book_name = #{record.bookName,jdbcType=VARCHAR},
       num = #{record.num,jdbcType=BIGINT},
-      price = #{record.price,jdbcType=BIGINT},
-      total = #{record.total,jdbcType=BIGINT}
+      price = #{record.price,jdbcType=BIGINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -224,9 +211,6 @@
       <if test="price != null" >
         price = #{price,jdbcType=BIGINT},
       </if>
-      <if test="total != null" >
-        total = #{total,jdbcType=BIGINT},
-      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -236,8 +220,7 @@
       book_id = #{bookId,jdbcType=BIGINT},
       book_name = #{bookName,jdbcType=VARCHAR},
       num = #{num,jdbcType=BIGINT},
-      price = #{price,jdbcType=BIGINT},
-      total = #{total,jdbcType=BIGINT}
+      price = #{price,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>
