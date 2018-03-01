@@ -8,6 +8,7 @@
     <result column="book_name" property="bookName" jdbcType="VARCHAR" />
     <result column="num" property="num" jdbcType="BIGINT" />
     <result column="price" property="price" jdbcType="BIGINT" />
+    <result column="book_image" property="bookImage" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, cart_id, book_id, book_name, num, price
+    id, cart_id, book_id, book_name, num, price, book_image
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="zstu.sjq.bean.BsUserCartItemExample" >
     select
@@ -102,9 +103,11 @@
   </delete>
   <insert id="insert" parameterType="zstu.sjq.bean.BsUserCartItem" >
     insert into bs_user_cart_item (id, cart_id, book_id, 
-      book_name, num, price)
+      book_name, num, price, 
+      book_image)
     values (#{id,jdbcType=BIGINT}, #{cartId,jdbcType=BIGINT}, #{bookId,jdbcType=BIGINT}, 
-      #{bookName,jdbcType=VARCHAR}, #{num,jdbcType=BIGINT}, #{price,jdbcType=BIGINT})
+      #{bookName,jdbcType=VARCHAR}, #{num,jdbcType=BIGINT}, #{price,jdbcType=BIGINT}, 
+      #{bookImage,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="zstu.sjq.bean.BsUserCartItem" >
     insert into bs_user_cart_item
@@ -127,6 +130,9 @@
       <if test="price != null" >
         price,
       </if>
+      <if test="bookImage != null" >
+        book_image,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -146,6 +152,9 @@
       </if>
       <if test="price != null" >
         #{price,jdbcType=BIGINT},
+      </if>
+      <if test="bookImage != null" >
+        #{bookImage,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -176,6 +185,9 @@
       <if test="record.price != null" >
         price = #{record.price,jdbcType=BIGINT},
       </if>
+      <if test="record.bookImage != null" >
+        book_image = #{record.bookImage,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -188,7 +200,8 @@
       book_id = #{record.bookId,jdbcType=BIGINT},
       book_name = #{record.bookName,jdbcType=VARCHAR},
       num = #{record.num,jdbcType=BIGINT},
-      price = #{record.price,jdbcType=BIGINT}
+      price = #{record.price,jdbcType=BIGINT},
+      book_image = #{record.bookImage,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -211,6 +224,9 @@
       <if test="price != null" >
         price = #{price,jdbcType=BIGINT},
       </if>
+      <if test="bookImage != null" >
+        book_image = #{bookImage,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -220,7 +236,8 @@
       book_id = #{bookId,jdbcType=BIGINT},
       book_name = #{bookName,jdbcType=VARCHAR},
       num = #{num,jdbcType=BIGINT},
-      price = #{price,jdbcType=BIGINT}
+      price = #{price,jdbcType=BIGINT},
+      book_image = #{bookImage,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

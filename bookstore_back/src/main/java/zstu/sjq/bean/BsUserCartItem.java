@@ -13,6 +13,8 @@ public class BsUserCartItem {
 
     private Long price;
 
+    private String bookImage;
+
     public Long getId() {
         return id;
     }
@@ -59,5 +61,13 @@ public class BsUserCartItem {
 
     public void setPrice(Long price) {
         this.price = price;
+    }
+
+    public String getBookImage() {
+        return bookImage;
+    }
+
+    public void setBookImage(String bookImage) {
+        this.bookImage = bookImage == null ? null : bookImage.trim();
     }
 }
