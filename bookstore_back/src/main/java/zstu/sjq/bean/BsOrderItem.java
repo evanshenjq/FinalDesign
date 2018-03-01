@@ -13,8 +13,6 @@ public class BsOrderItem {
 
     private Long price;
 
-    private Long total;
-
     public Long getId() {
         return id;
     }
@@ -61,13 +59,5 @@ public class BsOrderItem {
 
     public void setPrice(Long price) {
         this.price = price;
-    }
-
-    public Long getTotal() {
-        return total;
-    }
-
-    public void setTotal(Long total) {
-        this.total = total;
     }
 }

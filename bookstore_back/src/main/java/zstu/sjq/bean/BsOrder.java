@@ -17,6 +17,8 @@ public class BsOrder {
 
     private Date created;
 
+    private Integer total;
+
     public Long getId() {
         return id;
     }
@@ -71,5 +73,13 @@ public class BsOrder {
 
     public void setCreated(Date created) {
         this.created = created;
+    }
+
+    public Integer getTotal() {
+        return total;
+    }
+
+    public void setTotal(Integer total) {
+        this.total = total;
     }
 }
