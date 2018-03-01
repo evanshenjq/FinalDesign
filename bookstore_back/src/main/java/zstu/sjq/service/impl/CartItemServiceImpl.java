@@ -33,7 +33,7 @@ public class CartItemServiceImpl implements CartItemService {
 	@Override
 	public void updateCartItem(BsUserCartItem cartItem) {
 
-		bsUserCartItemMapper.updateByPrimaryKey(cartItem);
+		bsUserCartItemMapper.updateByPrimaryKeySelective(cartItem);
 
 	}
 

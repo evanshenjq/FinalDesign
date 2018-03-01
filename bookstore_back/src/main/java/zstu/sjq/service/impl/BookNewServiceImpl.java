@@ -23,7 +23,7 @@ public class BookNewServiceImpl implements BookNewService {
 	@Override
 	public void updateNewBookId(BsBookNew bsBookNew) {
 		
-		bsBookNewMapper.updateByPrimaryKey(bsBookNew);
+		bsBookNewMapper.updateByPrimaryKeySelective(bsBookNew);
 
 	}
 
