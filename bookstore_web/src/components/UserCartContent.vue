@@ -98,9 +98,9 @@ export default {
                 type:"POST",
                 success:function(result){
                     let items=result.extend.cartItems;
-                    items.forEach(function(value,index,array){
-
-                    });
+                    for(let item in items){
+                        console.log(item.bookId);
+                    }
                 }
             });
         },
