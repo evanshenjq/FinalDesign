@@ -17,6 +17,9 @@ import CatPage from '@/page/adminPage/catPage/CatPage'
 import AddBookPage from '@/page/adminPage/bookPage/AddBookPage'
 import UpdateBookPage from '@/page/adminPage/bookPage/UpdateBookPage'
 import UserCart from '@/page/UserCart'
+import UserOrderAddress from '@/page/UserOrderAddress'
+import UserOrderConfirm from '@/page/UserOrderConfirm'
+
 
 Vue.use(Router)
 
@@ -34,83 +37,93 @@ export default new Router({
     },
     {
       path:'/login',
-      name:'Login',
+      name:'login',
       component:Login
     },
     {
       path:'/register',
-      name:'Register',
+      name:'register',
       component:Register
     },
     {
       path:'/booksInfo/:catId',
-      name:'BooksInfo',
+      name:'booksInfo',
       component:BooksInfo
     },
     {
        path:'/bookInfo/:bookId',
-       name:'BookInfo',
+       name:'bookInfo',
        component:BookInfo
      },
      {
       path:'/userCenter/:userId',
-      name:'UserCenter',
+      name:'userCenter',
       component:UserCenter
      },
      {
       path:'/userOrder/:userId',
-      name:'UserOrder',
+      name:'userOrder',
       component:UserOrder
      },
      {
       path:'/userInfo/:userId',
-      name:'UserInfo',
+      name:'userInfo',
       component:UserInfo
      },
      {
       path:'/updatePassword/:userId',
-      name:'UpdatePassword',
+      name:'updatePassword',
       component:UpdatePassword
      },
      {
       path:'/bookPage',
-      name:'BookPage',
+      name:'bookPage',
       component:BookPage
      },
      {
        path:'/orderPage',
-       name:'OrderPage',
+       name:'orderPage',
        component:OrderPage
      },
      {
       path:'/userPage',
-      name:'UserPage',
+      name:'userPage',
       component:UserPage
     },
     {
       path:'/indexPage',
-      name:'IndexPage',
+      name:'indexPage',
       component:IndexPage
     },
     {
       path:'/addBookPage',
-      name:'AddBookPage',
+      name:'addBookPage',
       component:AddBookPage
     },
     {
       path:'/updateBookPage/:bookId',
-      name:'UpdateBookPage',
+      name:'updateBookPage',
       component:UpdateBookPage
     },
     {
       path:'/catPage',
-      name:'CatPage',
+      name:'catPage',
       component:CatPage
     },
     {
       path:'/userCart/:userId',
-      name:'UserCart',
+      name:'userCart',
       component:UserCart
+    },
+    {
+      path:'/userOrderAddress',
+      name:'userOrderAddress',
+      component:UserOrderAddress
+    },
+    {
+      path:'/userOrderConfirm',
+      name:'userOrderConfirm',
+      component:UserOrderConfirm
     }
 
   ]
