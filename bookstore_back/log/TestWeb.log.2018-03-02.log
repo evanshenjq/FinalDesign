@@ -407,3 +407,453 @@ java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
 				FrameworkServlet 'dispatcherServlet': initialization started
 2018-03-02 15:38:24.235 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
 				FrameworkServlet 'dispatcherServlet': initialization completed in 61 ms
+2018-03-02 16:06:46.195 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				Starting BookstoreBackApplication on H2600-0440L with PID 12352 (C:\moses\FinalDesign\bookstore_back\target\classes started by moses.shen in C:\moses\FinalDesign\bookstore_back)
+2018-03-02 16:06:46.201 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				No active profile set, falling back to default profiles: default
+2018-03-02 16:06:46.459 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -
+				Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ffead27: startup date [Fri Mar 02 16:06:46 CST 2018]; root of context hierarchy
+2018-03-02 16:06:47.434 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+				HV000001: Hibernate Validator 5.3.6.Final
+2018-03-02 16:06:51.291 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer -
+				Tomcat initialized with port(s): 8090 (http)
+2018-03-02 16:06:51.326 [main] INFO  org.apache.catalina.core.StandardService -
+				Starting service [Tomcat]
+2018-03-02 16:06:51.329 [main] INFO  org.apache.catalina.core.StandardEngine -
+				Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-03-02 16:06:51.688 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2018-03-02 16:06:51.689 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader -
+				Root WebApplicationContext: initialization completed in 5229 ms
+2018-03-02 16:06:52.133 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean -
+				Mapping servlet: 'dispatcherServlet' to [/]
+2018-03-02 16:06:52.141 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-03-02 16:06:52.142 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-03-02 16:06:52.143 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-03-02 16:06:52.143 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'requestContextFilter' to: [/*]
+2018-03-02 16:06:55.180 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ffead27: startup date [Fri Mar 02 16:06:46 CST 2018]; root of context hierarchy
+2018-03-02 16:06:55.462 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCatsNoPage]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCatsNoPage()
+2018-03-02 16:06:55.464 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCat/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCat(java.lang.Long)
+2018-03-02 16:06:55.468 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/deleteBookCat/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.deleteBookCat(java.lang.Long)
+2018-03-02 16:06:55.473 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCats]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCats(java.lang.Integer)
+2018-03-02 16:06:55.477 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addBookCat]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.addBookCat(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:06:55.478 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateBookCat]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.updateBookCat(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:06:55.492 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getOnBooksByCat/{catId}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.getOnBooksByCat(java.lang.Long,java.lang.Integer)
+2018-03-02 16:06:55.493 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/deleteBook/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.deleteBook(java.lang.Long)
+2018-03-02 16:06:55.493 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBook/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.getBook(java.lang.Long)
+2018-03-02 16:06:55.494 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getAllBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.getAllBooks(java.lang.Integer)
+2018-03-02 16:06:55.495 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateBook],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.updateBook(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-03-02 16:06:55.495 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/hasBookId/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.hasBookId(java.lang.Long)
+2018-03-02 16:06:55.496 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addBook],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.addBook(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-03-02 16:06:55.512 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getNewBooksId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getNewBooksId()
+2018-03-02 16:06:55.512 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getNewBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getNewBooks()
+2018-03-02 16:06:55.513 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getHotBooksId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getHotBooksId()
+2018-03-02 16:06:55.513 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateHotBookId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.updateHotBookId(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:06:55.529 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getHotBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getHotBooks()
+2018-03-02 16:06:55.530 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateNewBookId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.updateNewBookId(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:06:55.540 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getUserCartItem/{cartId}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.CartController.getUserCartItemByCartId(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:06:55.541 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addUserCart]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.CartController.addUserCart(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:06:55.542 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getCart/{userId}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.CartController.getCartByUserId(long)
+2018-03-02 16:06:55.543 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addUserCartItem]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.CartController.addUserCartItrm(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:06:55.548 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getUserById/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.getUserById(long)
+2018-03-02 16:06:55.548 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/checkName/{username}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.checkUsername(java.lang.String)
+2018-03-02 16:06:55.556 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateUser]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.updateUser(zstu.sjq.bean.BsUser)
+2018-03-02 16:06:55.557 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/loginUser]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.loginUser(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:06:55.558 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/registerUser],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.registerUser(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:06:55.559 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getAllUsers]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.getAllUsers(java.lang.Integer)
+2018-03-02 16:06:55.569 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:06:55.571 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-03-02 16:06:55.729 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-02 16:06:55.730 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-02 16:06:55.845 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-02 16:06:57.153 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -
+				Registering beans for JMX exposure on startup
+2018-03-02 16:06:57.240 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8090"]
+2018-03-02 16:06:57.273 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8090"]
+2018-03-02 16:06:57.321 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool -
+				Using a shared selector for servlet write/read
+2018-03-02 16:06:57.459 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer -
+				Tomcat started on port(s): 8090 (http)
+2018-03-02 16:06:57.481 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				Started BookstoreBackApplication in 12.044 seconds (JVM running for 13.439)
+2018-03-02 16:07:49.411 [http-nio-8090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -
+				Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-03-02 16:07:49.411 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+				FrameworkServlet 'dispatcherServlet': initialization started
+2018-03-02 16:07:49.499 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -
+				FrameworkServlet 'dispatcherServlet': initialization completed in 87 ms
+2018-03-02 16:16:52.220 [http-nio-8090-exec-7] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -
+				Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'long'; nested exception is java.lang.NumberFormatException: For input string: "null"
+2018-03-02 16:26:17.050 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				Starting BookstoreBackApplication on H2600-0440L with PID 19960 (C:\moses\FinalDesign\bookstore_back\target\classes started by moses.shen in C:\moses\FinalDesign\bookstore_back)
+2018-03-02 16:26:17.055 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				No active profile set, falling back to default profiles: default
+2018-03-02 16:26:17.286 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -
+				Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ffead27: startup date [Fri Mar 02 16:26:17 CST 2018]; root of context hierarchy
+2018-03-02 16:26:18.138 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+				HV000001: Hibernate Validator 5.3.6.Final
+2018-03-02 16:26:22.287 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer -
+				Tomcat initialized with port(s): 8090 (http)
+2018-03-02 16:26:22.331 [main] INFO  org.apache.catalina.core.StandardService -
+				Starting service [Tomcat]
+2018-03-02 16:26:22.334 [main] INFO  org.apache.catalina.core.StandardEngine -
+				Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-03-02 16:26:22.637 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2018-03-02 16:26:22.639 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader -
+				Root WebApplicationContext: initialization completed in 5353 ms
+2018-03-02 16:26:23.129 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean -
+				Mapping servlet: 'dispatcherServlet' to [/]
+2018-03-02 16:26:23.136 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-03-02 16:26:23.137 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-03-02 16:26:23.138 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-03-02 16:26:23.138 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'requestContextFilter' to: [/*]
+2018-03-02 16:26:25.534 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ffead27: startup date [Fri Mar 02 16:26:17 CST 2018]; root of context hierarchy
+2018-03-02 16:26:25.757 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCat/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCat(java.lang.Long)
+2018-03-02 16:26:25.764 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/deleteBookCat/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.deleteBookCat(java.lang.Long)
+2018-03-02 16:26:25.767 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCats]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCats(java.lang.Integer)
+2018-03-02 16:26:25.769 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateBookCat]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.updateBookCat(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:26:25.770 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addBookCat]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.addBookCat(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:26:25.771 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCatsNoPage]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCatsNoPage()
+2018-03-02 16:26:25.783 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateBook],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.updateBook(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-03-02 16:26:25.784 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getAllBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.getAllBooks(java.lang.Integer)
+2018-03-02 16:26:25.785 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBook/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.getBook(java.lang.Long)
+2018-03-02 16:26:25.788 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/deleteBook/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.deleteBook(java.lang.Long)
+2018-03-02 16:26:25.788 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addBook],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.addBook(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-03-02 16:26:25.789 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getOnBooksByCat/{catId}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.getOnBooksByCat(java.lang.Long,java.lang.Integer)
+2018-03-02 16:26:25.789 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/hasBookId/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.hasBookId(java.lang.Long)
+2018-03-02 16:26:25.805 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getNewBooksId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getNewBooksId()
+2018-03-02 16:26:25.806 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getNewBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getNewBooks()
+2018-03-02 16:26:25.807 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getHotBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getHotBooks()
+2018-03-02 16:26:25.807 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateHotBookId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.updateHotBookId(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:26:25.809 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateNewBookId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.updateNewBookId(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:26:25.817 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getHotBooksId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getHotBooksId()
+2018-03-02 16:26:25.821 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getCart/{userId}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.CartController.getCartByUserId(long)
+2018-03-02 16:26:25.821 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addUserCart]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.CartController.addUserCart(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:26:25.822 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addUserCartItem]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.CartController.addUserCartItrm(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:26:25.822 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getUserCartItem/{cartId}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.CartController.getUserCartItemByCartId(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:26:25.831 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getAllUsers]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.getAllUsers(java.lang.Integer)
+2018-03-02 16:26:25.832 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/checkName/{username}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.checkUsername(java.lang.String)
+2018-03-02 16:26:25.832 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateUser]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.updateUser(zstu.sjq.bean.BsUser)
+2018-03-02 16:26:25.833 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/registerUser],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.registerUser(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:26:25.833 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/loginUser]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.loginUser(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:26:25.834 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getUserById/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.getUserById(long)
+2018-03-02 16:26:25.842 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:26:25.842 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-03-02 16:26:25.939 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-02 16:26:25.952 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-02 16:26:26.125 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-02 16:26:27.324 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -
+				Registering beans for JMX exposure on startup
+2018-03-02 16:26:59.798 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				Starting BookstoreBackApplication on H2600-0440L with PID 10644 (C:\moses\FinalDesign\bookstore_back\target\classes started by moses.shen in C:\moses\FinalDesign\bookstore_back)
+2018-03-02 16:26:59.808 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				No active profile set, falling back to default profiles: default
+2018-03-02 16:26:59.977 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -
+				Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ffead27: startup date [Fri Mar 02 16:26:59 CST 2018]; root of context hierarchy
+2018-03-02 16:27:00.893 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+				HV000001: Hibernate Validator 5.3.6.Final
+2018-03-02 16:27:04.530 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer -
+				Tomcat initialized with port(s): 8090 (http)
+2018-03-02 16:27:04.560 [main] INFO  org.apache.catalina.core.StandardService -
+				Starting service [Tomcat]
+2018-03-02 16:27:04.562 [main] INFO  org.apache.catalina.core.StandardEngine -
+				Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-03-02 16:27:04.921 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2018-03-02 16:27:04.922 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader -
+				Root WebApplicationContext: initialization completed in 4945 ms
+2018-03-02 16:27:05.273 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean -
+				Mapping servlet: 'dispatcherServlet' to [/]
+2018-03-02 16:27:05.279 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-03-02 16:27:05.280 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-03-02 16:27:05.281 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-03-02 16:27:05.282 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'requestContextFilter' to: [/*]
+2018-03-02 16:27:07.654 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ffead27: startup date [Fri Mar 02 16:26:59 CST 2018]; root of context hierarchy
+2018-03-02 16:27:07.870 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCatsNoPage]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCatsNoPage()
+2018-03-02 16:27:07.873 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addBookCat]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.addBookCat(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:27:07.874 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/deleteBookCat/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.deleteBookCat(java.lang.Long)
+2018-03-02 16:27:07.877 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateBookCat]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.updateBookCat(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:27:07.879 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCats]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCats(java.lang.Integer)
+2018-03-02 16:27:07.880 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCat/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCat(java.lang.Long)
+2018-03-02 16:27:07.886 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addBook],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.addBook(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-03-02 16:27:07.888 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateBook],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.updateBook(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-03-02 16:27:07.888 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/deleteBook/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.deleteBook(java.lang.Long)
+2018-03-02 16:27:07.889 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBook/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.getBook(java.lang.Long)
+2018-03-02 16:27:07.890 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getAllBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.getAllBooks(java.lang.Integer)
+2018-03-02 16:27:07.890 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getOnBooksByCat/{catId}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.getOnBooksByCat(java.lang.Long,java.lang.Integer)
+2018-03-02 16:27:07.891 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/hasBookId/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.hasBookId(java.lang.Long)
+2018-03-02 16:27:07.903 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getNewBooksId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getNewBooksId()
+2018-03-02 16:27:07.904 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateNewBookId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.updateNewBookId(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:27:07.904 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getNewBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getNewBooks()
+2018-03-02 16:27:07.905 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getHotBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getHotBooks()
+2018-03-02 16:27:07.908 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getHotBooksId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getHotBooksId()
+2018-03-02 16:27:07.909 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateHotBookId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.updateHotBookId(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:27:07.911 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getUserCartItem/{cartId}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.CartController.getUserCartItemByCartId(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:27:07.912 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addUserCartItem]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.CartController.addUserCartItrm(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:27:07.912 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getCart/{userId}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.CartController.getCartByUserId(long)
+2018-03-02 16:27:07.913 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addUserCart]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.CartController.addUserCart(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:27:07.914 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/registerUser],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.registerUser(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:27:07.917 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/checkName/{username}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.checkUsername(java.lang.String)
+2018-03-02 16:27:07.917 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateUser]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.updateUser(zstu.sjq.bean.BsUser)
+2018-03-02 16:27:07.919 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/loginUser]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.loginUser(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:27:07.920 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getUserById/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.getUserById(long)
+2018-03-02 16:27:07.922 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getAllUsers]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.getAllUsers(java.lang.Integer)
+2018-03-02 16:27:07.931 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:27:07.940 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-03-02 16:27:08.099 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-02 16:27:08.099 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-02 16:27:08.271 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-02 16:27:09.536 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -
+				Registering beans for JMX exposure on startup
+2018-03-02 16:27:09.599 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8090"]
+2018-03-02 16:27:09.654 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8090"]
+2018-03-02 16:27:09.715 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool -
+				Using a shared selector for servlet write/read
+2018-03-02 16:27:09.796 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer -
+				Tomcat started on port(s): 8090 (http)
+2018-03-02 16:27:09.815 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				Started BookstoreBackApplication in 10.798 seconds (JVM running for 11.992)
+2018-03-02 16:27:28.589 [http-nio-8090-exec-3] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -
+				Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-03-02 16:27:28.590 [http-nio-8090-exec-3] INFO  org.springframework.web.servlet.DispatcherServlet -
+				FrameworkServlet 'dispatcherServlet': initialization started
+2018-03-02 16:27:28.650 [http-nio-8090-exec-3] INFO  org.springframework.web.servlet.DispatcherServlet -
+				FrameworkServlet 'dispatcherServlet': initialization completed in 60 ms
+2018-03-02 16:37:15.570 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				Starting BookstoreBackApplication on H2600-0440L with PID 17524 (C:\moses\FinalDesign\bookstore_back\target\classes started by moses.shen in C:\moses\FinalDesign\bookstore_back)
+2018-03-02 16:37:15.574 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				No active profile set, falling back to default profiles: default
+2018-03-02 16:37:15.927 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -
+				Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ffead27: startup date [Fri Mar 02 16:37:15 CST 2018]; root of context hierarchy
+2018-03-02 16:37:16.922 [background-preinit] INFO  org.hibernate.validator.internal.util.Version -
+				HV000001: Hibernate Validator 5.3.6.Final
+2018-03-02 16:37:20.822 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer -
+				Tomcat initialized with port(s): 8090 (http)
+2018-03-02 16:37:20.870 [main] INFO  org.apache.catalina.core.StandardService -
+				Starting service [Tomcat]
+2018-03-02 16:37:20.873 [main] INFO  org.apache.catalina.core.StandardEngine -
+				Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-03-02 16:37:21.209 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2018-03-02 16:37:21.209 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader -
+				Root WebApplicationContext: initialization completed in 5282 ms
+2018-03-02 16:37:21.672 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean -
+				Mapping servlet: 'dispatcherServlet' to [/]
+2018-03-02 16:37:21.686 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-03-02 16:37:21.688 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-03-02 16:37:21.688 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-03-02 16:37:21.690 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean -
+				Mapping filter: 'requestContextFilter' to: [/*]
+2018-03-02 16:37:24.169 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ffead27: startup date [Fri Mar 02 16:37:15 CST 2018]; root of context hierarchy
+2018-03-02 16:37:24.384 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCatsNoPage]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCatsNoPage()
+2018-03-02 16:37:24.386 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCats]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCats(java.lang.Integer)
+2018-03-02 16:37:24.386 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addBookCat]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.addBookCat(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:37:24.387 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/deleteBookCat/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.deleteBookCat(java.lang.Long)
+2018-03-02 16:37:24.387 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBookCat/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.getBookCat(java.lang.Long)
+2018-03-02 16:37:24.388 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateBookCat]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookCatController.updateBookCat(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:37:24.390 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getAllBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.getAllBooks(java.lang.Integer)
+2018-03-02 16:37:24.390 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addBook],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.addBook(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-03-02 16:37:24.391 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/hasBookId/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.hasBookId(java.lang.Long)
+2018-03-02 16:37:24.392 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getOnBooksByCat/{catId}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.getOnBooksByCat(java.lang.Long,java.lang.Integer)
+2018-03-02 16:37:24.392 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getBook/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.getBook(java.lang.Long)
+2018-03-02 16:37:24.392 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/deleteBook/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.deleteBook(java.lang.Long)
+2018-03-02 16:37:24.393 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateBook],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookController.updateBook(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2018-03-02 16:37:24.401 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getNewBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getNewBooks()
+2018-03-02 16:37:24.401 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateHotBookId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.updateHotBookId(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:37:24.402 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getHotBooksId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getHotBooksId()
+2018-03-02 16:37:24.402 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateNewBookId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.updateNewBookId(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:37:24.403 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getHotBooks]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getHotBooks()
+2018-03-02 16:37:24.404 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getNewBooksId]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.BookRecommendController.getNewBooksId()
+2018-03-02 16:37:24.405 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getUserCartItem/{cartId}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.CartController.getUserCartItemByCartId(long)
+2018-03-02 16:37:24.406 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addUserCartItem]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.CartController.addUserCartItrm(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:37:24.406 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getCart/{userId}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.CartController.getCartByUserId(long)
+2018-03-02 16:37:24.407 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/addUserCart]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.CartController.addUserCart(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:37:24.409 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/loginUser]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.loginUser(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:37:24.409 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/registerUser],methods=[POST]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.registerUser(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:37:24.410 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getUserById/{id}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.getUserById(long)
+2018-03-02 16:37:24.410 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/updateUser]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.updateUser(zstu.sjq.bean.BsUser)
+2018-03-02 16:37:24.410 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/getAllUsers]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.getAllUsers(java.lang.Integer)
+2018-03-02 16:37:24.411 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/checkName/{username}]}" onto public zstu.sjq.bean.Msg zstu.sjq.controller.UserController.checkUsername(java.lang.String)
+2018-03-02 16:37:24.434 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-03-02 16:37:24.435 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-03-02 16:37:24.521 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-02 16:37:24.522 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-02 16:37:24.712 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping -
+				Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-02 16:37:26.033 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter -
+				Registering beans for JMX exposure on startup
+2018-03-02 16:37:26.099 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-8090"]
+2018-03-02 16:37:26.159 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-8090"]
+2018-03-02 16:37:26.223 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool -
+				Using a shared selector for servlet write/read
+2018-03-02 16:37:26.288 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer -
+				Tomcat started on port(s): 8090 (http)
+2018-03-02 16:37:26.300 [main] INFO  zstu.sjq.BookstoreBackApplication -
+				Started BookstoreBackApplication in 11.754 seconds (JVM running for 13.167)
+2018-03-02 16:38:31.265 [http-nio-8090-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -
+				Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-03-02 16:38:31.265 [http-nio-8090-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet -
+				FrameworkServlet 'dispatcherServlet': initialization started
+2018-03-02 16:38:31.317 [http-nio-8090-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet -
+				FrameworkServlet 'dispatcherServlet': initialization completed in 52 ms

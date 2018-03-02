@@ -1,5 +1,7 @@
 package zstu.sjq.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import zstu.sjq.bean.BsUserCart;
+import zstu.sjq.bean.BsUserCartItem;
 import zstu.sjq.bean.Msg;
 import zstu.sjq.service.CartItemService;
 import zstu.sjq.service.CartService;
@@ -38,10 +41,11 @@ public class CartController {
 	@RequestMapping("/getCart/{userId}")
 	@ResponseBody
 	public Msg getCartByUserId(@PathVariable long userId) {
-		
 		try{
+			
 			BsUserCart cart=cartService.getCartByUserId(userId);
 			return Msg.success().add("cart", cart);
+			
 		}catch(IndexOutOfBoundsException e) {
 			return Msg.success().add("cart", null);
 		}
@@ -58,8 +62,11 @@ public class CartController {
 	
 	@RequestMapping("/getUserCartItem/{cartId}")
 	@ResponseBody
-	public Msg getUserCartItemByCartId(HttpServletRequest request) {
-		return Msg.success();
+	public Msg getUserCartItemByCartId(@PathVariable long cartId) {
+		
+		List<BsUserCartItem> list=cartItemService.getCartItemByCartId(cartId);
+		
+		return Msg.success().add("cartItems", list);
 	}
 
 }
