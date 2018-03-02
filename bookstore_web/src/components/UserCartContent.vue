@@ -47,19 +47,21 @@
 
 
 <script>
+var self;
 export default {
     data(){
         return{
             num:1,
+            cartId:'',
         }
     },
     mounted(){
+        self=this;
         this.getUserCart();
     },
     wathch:{
         num:function(val){
-            console.log(val);
-            console.log(this);
+ 
         }
     },
     methods:{
@@ -69,10 +71,42 @@ export default {
                 url:"/zstu/getCart/"+userId,
                 type:"POST",
                 success:function(result){
-                    console.log(result);
+                    if(result.extend.cart==null){
+                        let formData=new FormData();
+                        formData.append("userId",userId);
+                        $.ajax({
+                            url:"/zstu/addUserCart",
+                            data:formData,
+                            type:"POST",
+                            contentType: false,  
+                            processData: false,
+                            success:function(result){
+                                self.cartId=result.extend.cartId;
+                                self.getItemsByCartId(self.cartId);
+                            }
+                        });
+                    }else{
+                        self.cartId=result.extend.cart.id;
+                        self.getItemsByCartId(self.cartId);
+                    }
                 }
             });
         },
+        getItemsByCartId(cartId){
+            $.ajax({
+                url:"/zstu/getUserCartItem/"+cartId,
+                type:"POST",
+                success:function(result){
+                    let items=result.extend.cartItems;
+                    items.forEach(function(value,index,array){
+
+                    });
+                }
+            });
+        },
+        getBookByBookId(bookId){
+
+        }       
     }
 }
 </script>
