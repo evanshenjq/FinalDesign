@@ -1,7 +1,5 @@
 package zstu.sjq.controller;
 
-import static org.mockito.Mockito.RETURNS_DEEP_STUBS;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +27,11 @@ public class CartController {
 	public Msg addUserCart(HttpServletRequest request) {
 		
 		BsUserCart userCart=new BsUserCart();
-		userCart.setId(IDUtils.genRandomId());
+		long id=IDUtils.genRandomId();
+		userCart.setId(id);
 		userCart.setUserId(Long.valueOf(request.getParameter("userId")));
 		cartService.addCartByUserId(userCart);
-		return Msg.success();
+		return Msg.success().add("cartId", id);
 		
 	}
 	
@@ -40,9 +39,13 @@ public class CartController {
 	@ResponseBody
 	public Msg getCartByUserId(@PathVariable long userId) {
 		
-		BsUserCart cart=cartService.getCartByUserId(userId);
+		try{
+			BsUserCart cart=cartService.getCartByUserId(userId);
+			return Msg.success().add("cart", cart);
+		}catch(IndexOutOfBoundsException e) {
+			return Msg.success().add("cart", null);
+		}
 		
-		return Msg.success().add("cart", cart);
 	}
 	
 	@RequestMapping("/addUserCartItem")

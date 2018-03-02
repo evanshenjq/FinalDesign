@@ -35,6 +35,6 @@ public class IDUtils {
 
 	
 	public static void main(String[] args) {
-		
+		System.out.println(genRandomId());
 	}
 }
