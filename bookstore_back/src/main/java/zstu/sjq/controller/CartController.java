@@ -55,8 +55,15 @@ public class CartController {
 	@RequestMapping("/addUserCartItem")
 	@ResponseBody
 	public Msg addUserCartItrm(HttpServletRequest request) {
-	
-		//request.
+		
+		BsUserCartItem cartItem=new BsUserCartItem();
+		cartItem.setId(IDUtils.genRandomId());
+		cartItem.setCartId(Long.valueOf(request.getParameter("cartId")));
+		cartItem.setBookId(Long.valueOf(request.getParameter("bookId")));
+		cartItem.setNum(Long.valueOf(request.getParameter("num")));
+		
+		cartItemService.addCartItem(cartItem);
+		
 		return Msg.success();
 	}
 	
@@ -67,6 +74,28 @@ public class CartController {
 		List<BsUserCartItem> list=cartItemService.getCartItemByCartId(cartId);
 		
 		return Msg.success().add("cartItems", list);
+	}
+	
+	@RequestMapping("/deleteUserCartItem/{cartItemId}")
+	@ResponseBody
+	public Msg deleteUserCartItem(@PathVariable long cartItemId) {
+		
+		cartItemService.deleteCartItem(cartItemId);
+		
+		return Msg.success();
+	}
+	
+	@RequestMapping("/updateUserCartItem")
+	@ResponseBody
+	public Msg updateUserCartItem(HttpServletRequest request) {
+		
+		BsUserCartItem cartItem=new BsUserCartItem();
+		cartItem.setId(Long.valueOf(request.getParameter("cartItemId")));
+		cartItem.setNum(Long.valueOf(request.getParameter("num")));
+		
+		cartItemService.updateCartItem(cartItem);
+		
+		return Msg.success();
 	}
 
 }
