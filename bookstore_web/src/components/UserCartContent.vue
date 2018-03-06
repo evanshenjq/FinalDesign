@@ -1,68 +1,65 @@
 <template>
-  <div class="row">
+  <div class="row" >
       <div class="col-md-offset-1" id="cart_title">
         <h2>购物车</h2>
       
         <div class="row" id="sc_list_title">        
-                <div class="col-md-1 col-md-offset-7">价格</div>
+                <div class="col-md-1 col-md-offset-7">单价</div>
                 <div class="col-md-1 col-md-offset-2">数量</div>
         </div>
 
         <div class="row" id="sc_list_body">
-            <div class="row sc_list_item">
+            <div class="row sc_list_item" v-for="(item,index) in items">
                 <div class="col-md-2">
                     <a>
-                        <img class="sc_list_item_img" src="@/assets/image/1.jpg">
+                        <img class="sc_list_item_img" :src="item.image">
                     </a>
                 </div>
                 <div class="col-md-5">
                     <div class="sc_list_item_book">
-                        <a class="sc_list_item_book_name">哈哈哈哈哈</a>
-                        <div class="sc_list_item_book_publish">MC阿红</div>
-                        <div class="sc_list_item_book_stock">库存:300</div>
-                        <a class="sc_list_item_book_del">删除</a>
+                        <a class="sc_list_item_book_name">{{item.name}}</a>
+                        <div class="sc_list_item_book_publish">{{item.publish}}</div>
+                        <div class="sc_list_item_book_stock">库存:{{getBookNum(item.bookNum)}}</div>
+                        <a class="sc_list_item_book_del" @click="deleteCartItem(item.id)">删除</a>
                     </div>
                 </div>
                 <div class="col-md-1 sc_list_item_book_price">
-                    ￥13.00
+                    ￥{{item.price}}
                 </div>
                 <div class="col-md-offset-2 col-md-1 sc_list_item_book_num">
                     <div class="input-group input-group-sm">
-                        <input type="text" class="form-control" v-model="num">
+                        <input type="text" class="form-control" v-model="item.num">
                     </div>
-                    <button class="btn btn-warning btn-xs sc_book_update_btn">更新</button>
+                    <button class="btn btn-warning btn-xs sc_book_update_btn" @click="updateBookNum(item.id,item.num)">更新</button>
                 </div>
             </div>
         </div>
 
         <div class="row" id="sc_list_foot">
             <div class="col-md-offset-8">
-            <span class="sc_list_foot_text">小计 (26 件商品):</span> 
-            <span class="sc_list_foot_total">￥ 2,004.44</span>
+            <span class="sc_list_foot_text">小计 ( {{totalNum}}件商品):</span> 
+            <span class="sc_list_foot_total">￥ {{getTotalPrice(totalPrice)}}</span>
             </div>
         </div>
       </div>
   </div>
 </template>
 
-
 <script>
 var self;
+var cartNum;
 export default {
     data(){
         return{
-            num:1,
             cartId:'',
+            items:'',
+            totalNum:0,
+            totalPrice:0
         }
     },
     mounted(){
         self=this;
         this.getUserCart();
-    },
-    wathch:{
-        num:function(val){
- 
-        }
     },
     methods:{
         getUserCart(){
@@ -97,16 +94,36 @@ export default {
                 url:"/zstu/getUserCartItem/"+cartId,
                 type:"POST",
                 success:function(result){
-                    let items=result.extend.cartItems;
-                    for(let item in items){
-                        console.log(item.bookId);
+                    self.items=result.extend.cartItems;
+                    for(let item of self.items){
+                        self.totalNum=self.totalNum+item.num;
+                        self.totalPrice=self.totalPrice+item.num*item.price;
                     }
                 }
             });
         },
-        getBookByBookId(bookId){
-
-        }       
+        getCartNum(num){
+            cartNum=cartNum+num;
+            return cartNum;
+        },
+        getTotalPrice(price){
+            return price.toFixed(2);
+        },
+        getBookNum(num){
+            if(num<0){
+                return "库存不足";
+            }else{
+                return num;
+            }
+        },
+        updateBookNum(itemId,num){
+            if(num<=0){
+                alert("请输入正确的数目！！");
+            }
+            else{
+                alert("发送ajax");
+            }
+        }
     }
 }
 </script>

@@ -238,9 +238,10 @@ export default {
     border-bottom-color: #dddddd;
     width:100%;
     margin-top:25px;
+    margin-bottom:10px;
 }
 .book_image_books{
-    height: 218px;
+    height: 210px;
     width: 175px;
 }
 .blue_href{
