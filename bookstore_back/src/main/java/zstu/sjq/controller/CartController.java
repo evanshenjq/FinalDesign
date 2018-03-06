@@ -1,5 +1,6 @@
 package zstu.sjq.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,9 +11,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import zstu.sjq.bean.BsBook;
 import zstu.sjq.bean.BsUserCart;
+import zstu.sjq.bean.BsUserCartDetailItem;
 import zstu.sjq.bean.BsUserCartItem;
 import zstu.sjq.bean.Msg;
+import zstu.sjq.service.BookService;
 import zstu.sjq.service.CartItemService;
 import zstu.sjq.service.CartService;
 import zstu.sjq.utils.IDUtils;
@@ -24,6 +28,9 @@ public class CartController {
 	CartService cartService;
 	@Autowired
 	CartItemService cartItemService;
+	@Autowired
+	BookService bookService;
+	
 	
 	@RequestMapping("/addUserCart")
 	@ResponseBody
@@ -71,7 +78,25 @@ public class CartController {
 	@ResponseBody
 	public Msg getUserCartItemByCartId(@PathVariable long cartId) {
 		
-		List<BsUserCartItem> list=cartItemService.getCartItemByCartId(cartId);
+		List<BsUserCartItem> items=cartItemService.getCartItemByCartId(cartId);
+		
+		List<BsUserCartDetailItem> list=new ArrayList<BsUserCartDetailItem>();
+		
+		for(BsUserCartItem i : items) {
+			BsUserCartDetailItem item=new BsUserCartDetailItem();
+			item.setId(i.getId());
+			item.setCartId(i.getCartId());
+			item.setNum(i.getNum());
+			BsBook book=bookService.getBook(i.getBookId());
+			item.setBookId(book.getId());
+			item.setName(book.getName());
+			item.setPublish(book.getPublish());
+			item.setPrice(book.getPrice());
+			item.setBookNum(book.getNum());
+			item.setImage(book.getImage());
+			
+			list.add(item);
+		}
 		
 		return Msg.success().add("cartItems", list);
 	}
