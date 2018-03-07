@@ -121,8 +121,26 @@ export default {
                 alert("请输入正确的数目！！");
             }
             else{
-                alert("发送ajax");
+                if(confirm("确认要更新数量吗？")){
+                     let formData=new FormData();
+                    formData.append("cartItemId",itemId);
+                    formData.append("num",num);
+                    $.ajax({
+                        url:"/zstu/updateUserCartItem",
+                        data:formData,
+                        type:"POST",
+                        contentType: false,  
+                        processData: false,
+                        success:function(result){
+                            alert("更新成功");
+                            location.reload();
+                        }
+                    });
+                }
             }
+        },
+        deleteCartItem(id){
+
         }
     }
 }
