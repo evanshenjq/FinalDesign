@@ -126,7 +126,7 @@ export default {
 				data:{'pn':pn},
 				type:"POST",
 				success:function(result){
-                    //console.log(result);
+                    console.log(result);
                     self.books=result.extend.books.list;
                     //2.解析显示分页信息
                     self.nowPage=result.extend.books.pageNum;

@@ -20,7 +20,7 @@
                         <a class="sc_list_item_book_name">{{item.name}}</a>
                         <div class="sc_list_item_book_publish">{{item.publish}}</div>
                         <div class="sc_list_item_book_stock">库存:{{getBookNum(item.bookNum)}}</div>
-                        <a class="sc_list_item_book_del" @click="deleteCartItem(item.id)">删除</a>
+                        <a class="sc_list_item_book_del" @click="deleteCartItem(item.id,item.name)">删除</a>
                     </div>
                 </div>
                 <div class="col-md-1 sc_list_item_book_price">
@@ -122,7 +122,7 @@ export default {
             }
             else{
                 if(confirm("确认要更新数量吗？")){
-                     let formData=new FormData();
+                    let formData=new FormData();
                     formData.append("cartItemId",itemId);
                     formData.append("num",num);
                     $.ajax({
@@ -139,8 +139,18 @@ export default {
                 }
             }
         },
-        deleteCartItem(id){
-
+        deleteCartItem(id,name){
+            if(confirm("确认要删除"+name+"吗？")){
+                let formData=new FormData();
+                $.ajax({
+                    url:"/zstu/deleteUserCartItem/"+id,
+                    type:"POST",
+                    success:function(result){
+                        alert("删除成功");
+                        location.reload();
+                    }
+                })
+            }
         }
     }
 }
@@ -202,5 +212,8 @@ export default {
     color: #B12704;
     font-size: 17px;
     font-weight: 700;
+}
+.sc_list_item_book_del{
+    color: #4a6bc0;
 }
 </style>
