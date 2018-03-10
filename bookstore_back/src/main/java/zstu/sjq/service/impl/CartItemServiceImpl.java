@@ -50,4 +50,17 @@ public class CartItemServiceImpl implements CartItemService {
 
 	}
 
+	@Override
+	public List<BsUserCartItem> getCartItemByCartIdAndBookId(long cartId, long bookId) {
+		
+		BsUserCartItemExample example=new BsUserCartItemExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andCartIdEqualTo(cartId);
+		criteria.andBookIdEqualTo(bookId);
+		
+		List<BsUserCartItem> list=bsUserCartItemMapper.selectByExample(example);
+		
+		return list;
+	}
+
 }

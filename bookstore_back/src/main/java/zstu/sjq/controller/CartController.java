@@ -69,7 +69,17 @@ public class CartController {
 		cartItem.setBookId(Long.valueOf(request.getParameter("bookId")));
 		cartItem.setNum(Long.valueOf(request.getParameter("num")));
 		
-		cartItemService.addCartItem(cartItem);
+		List<BsUserCartItem> list=cartItemService.getCartItemByCartIdAndBookId
+		(Long.valueOf(request.getParameter("cartId")), Long.valueOf(request.getParameter("bookId")));
+		
+		if(list.size()==0) {
+			cartItemService.addCartItem(cartItem);
+		}else {
+			BsUserCartItem item=list.get(0);
+			long oldNum=item.getNum();
+			item.setNum(Long.valueOf(request.getParameter("num"))+oldNum);
+			cartItemService.updateCartItem(item);
+		}
 		
 		return Msg.success();
 	}

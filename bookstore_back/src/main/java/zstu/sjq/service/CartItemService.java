@@ -16,5 +16,7 @@ public interface CartItemService {
 	public void addCartItem(BsUserCartItem cartItem);
 	
 	public void deleteCartItem(long id);
+	
+	public List<BsUserCartItem> getCartItemByCartIdAndBookId(long cartId,long bookId);
 
 }
