@@ -3,6 +3,7 @@
 		<!-- 搜索栏 -->
 		<div class="col-md-1">
 			<a href="/">
+			<!-- test -->
 				<img id="logo_image" src="../assets/image/logo.png">
 			</a>
 		</div>
