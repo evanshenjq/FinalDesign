@@ -37,8 +37,11 @@
 
         <div class="row" id="sc_list_foot">
             <div class="col-md-offset-8">
-            <span class="sc_list_foot_text">小计 ( {{totalNum}}件商品):</span> 
+            <span class="sc_list_foot_text">合计 ( {{totalNum}}件商品):</span> 
             <span class="sc_list_foot_total">￥ {{getTotalPrice(totalPrice)}}</span>
+            </div>
+            <div class="col-md-offset-8">
+                <button id="cartSubmitBtn" type="submit" class="btn btn-warning" @click="turnOrderAdderssPage()">结算</button>
             </div>
         </div>
       </div>
@@ -151,6 +154,9 @@ export default {
                     }
                 })
             }
+        },
+        turnOrderAdderssPage(){
+            this.$router.push('/userOrderAddress/'+sessionStorage.getItem('userId'));
         }
     }
 }
@@ -215,5 +221,9 @@ export default {
 }
 .sc_list_item_book_del{
     color: #4a6bc0;
+}
+#cartSubmitBtn{
+    margin-top: 10px;
+    width:120px;
 }
 </style>

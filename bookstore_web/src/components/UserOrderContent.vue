@@ -9,9 +9,9 @@
                     <th>收件人</th>
                     <th>电话号码</th>
                     <th>收货地址</th>
-                    <th>状态</th>
                     <th>创建时间</th>
-                    <th>查看详情</th>
+                    <th>订单状态</th>
+                    <th>确认</th>
                 </tr>
             </thead>
             <tbody>

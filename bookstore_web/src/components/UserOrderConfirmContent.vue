@@ -7,24 +7,23 @@
                 <div id="order_address_title">送货地址      
                     <a @click="turnOrderAddressPage()">更改</a>
                 </div>
-                <div class="order_address_info">沈佳琦 15958003138</div>
-                <div class="order_address_info">浙江省杭州市江干区四季青街道钱潮路68号金基晓庐5-1-1903</div>
+                <div class="order_address_info">{{name}} {{phone}}</div>
+                <div class="order_address_info">{{address}}</div>
                 <div id="order_address_foot"></div>
             </div>
 
             <div class="row" id="order_books_box">
-                <div class="row" id="order_books_info">
+                <div class="row" id="order_books_info" v-for="(item,index) in items">
                     <div class="order_book_info">
                         <div class="col-md-2">
-                            <img class="order_book_img" src="@/assets/image/3.jpg">
+                            <img class="order_book_img" :src="item.image">
                         </div>
                         <div class="col-md-7">
-                            <div class="order_book_name">红楼梦</div>
-                            <div class="order_book_publish">曹雪芹</div>
-                            <div class="order_book_price">￥88.88</div>
+                            <div class="order_book_name">{{item.name}}</div>
+                            <div class="order_book_publish">{{item.publish}}</div>
+                            <div class="order_book_price">￥{{item.price}}</div>
                             <div class="order_book_num">
-                                数量:20件
-                                <a>更改</a>
+                                数量:{{item.num}}件
                             </div>
                         </div>
                     </div>
@@ -33,9 +32,9 @@
 
             <div class="row" id="order_total_box">
                 <div id="order_total_box_price">
-                    <span class="order_total_name">小计（26件商品）
+                    <span class="order_total_name">小计（{{totalNum}}件商品）
                         <span class="order_total_price">
-                            ￥ 2000.74
+                            ￥ {{getTotalPrice(totalPrice)}}
                         </span>
                     </span>
                 </div>
@@ -44,27 +43,92 @@
                 </div>
             </div>
 
-            
         </div>
     </div>
 </template>
 
 <script>
+var self;
+var userId;
 export default {
     data(){
         return{
-
+            name:'',
+            phone:'',
+            address:'',
+            totalNum:0,
+            totalPrice:0,
+            cartId:'',
+            items:''
         }
     },
     mounted(){
-        this.test()
+        self=this;
+        userId=sessionStorage.getItem("userId");
+        this.name=this.$route.params.name;
+        this.phone=this.$route.params.phone;
+        this.address=this.$route.params.address;
+        this.getUserCart();
     },
     methods:{
-        test(){
-            console.log(this.$route.params.name);
+        getUserCart(){
+            let userId=sessionStorage.getItem('userId');
+            $.ajax({
+                url:"/zstu/getCart/"+userId,
+                type:"POST",
+                success:function(result){
+                    self.cartId=result.extend.cart.id;
+                    self.getItemsByCartId(self.cartId);
+                }
+            });
+        },
+        getItemsByCartId(cartId){
+            $.ajax({
+                url:"/zstu/getUserCartItem/"+cartId,
+                type:"POST",
+                success:function(result){
+                    self.items=result.extend.cartItems;
+                    for(let item of self.items){
+                        self.totalNum=self.totalNum+item.num;
+                        self.totalPrice=self.totalPrice+item.num*item.price;
+                    }
+                }
+            });
+        },
+        getTotalPrice(price){
+            return price.toFixed(2);
         },
         turnOrderAddressPage(){
-
+            this.$router.push({
+                    name:'userOrderAddress',
+                    params:{
+                        name:this.name,
+                        phone:this.phone,
+                        address:this.address
+                }
+            });
+        },
+        submitOrder(){
+            if(confirm("确认提交并支付订单吗?")){
+                let formData=new FormData();
+                formData.append("userId",sessionStorage.getItem("userId"));
+                formData.append("orderName",this.name);
+                formData.append("orderPhone",this.phone);
+                formData.append("orderAddress",this.address);
+                formData.append("total",this.getTotalPrice(this.totalPrice));
+                $.ajax({
+                    url:"/zstu/addOrder",
+                    data:formData,
+                    type:"POST",
+                    contentType: false,  
+                    processData: false,
+                    success:function(result){
+                        //pay function
+                        //....
+                        alert("订单提交成功！谢谢惠顾！");
+                    }
+                });
+            }
         }
     }
 }

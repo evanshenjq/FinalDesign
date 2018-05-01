@@ -9,7 +9,7 @@
     <result column="user_address" property="userAddress" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="INTEGER" />
     <result column="created" property="created" jdbcType="TIMESTAMP" />
-    <result column="total" property="total" jdbcType="INTEGER" />
+    <result column="total" property="total" jdbcType="DOUBLE" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -87,7 +87,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from bs_order
     where id = #{id,jdbcType=BIGINT}
@@ -103,12 +103,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="zstu.sjq.bean.BsOrder" >
-    insert into bs_order (id, user_id, user_name, 
-      user_phone, user_address, status, 
+    insert into bs_order (id, user_id, user_name,
+      user_phone, user_address, status,
       created, total)
-    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, 
-      #{userPhone,jdbcType=VARCHAR}, #{userAddress,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
-      #{created,jdbcType=TIMESTAMP}, #{total,jdbcType=INTEGER})
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR},
+      #{userPhone,jdbcType=VARCHAR}, #{userAddress,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},
+      #{created,jdbcType=TIMESTAMP}, #{total,jdbcType=DOUBLE})
   </insert>
   <insert id="insertSelective" parameterType="zstu.sjq.bean.BsOrder" >
     insert into bs_order
@@ -161,7 +161,7 @@
         #{created,jdbcType=TIMESTAMP},
       </if>
       <if test="total != null" >
-        #{total,jdbcType=INTEGER},
+        #{total,jdbcType=DOUBLE},
       </if>
     </trim>
   </insert>
@@ -196,7 +196,7 @@
         created = #{record.created,jdbcType=TIMESTAMP},
       </if>
       <if test="record.total != null" >
-        total = #{record.total,jdbcType=INTEGER},
+        total = #{record.total,jdbcType=DOUBLE},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -206,13 +206,13 @@
   <update id="updateByExample" parameterType="map" >
     update bs_order
     set id = #{record.id,jdbcType=BIGINT},
-      user_id = #{record.userId,jdbcType=BIGINT},
-      user_name = #{record.userName,jdbcType=VARCHAR},
-      user_phone = #{record.userPhone,jdbcType=VARCHAR},
-      user_address = #{record.userAddress,jdbcType=VARCHAR},
-      status = #{record.status,jdbcType=INTEGER},
-      created = #{record.created,jdbcType=TIMESTAMP},
-      total = #{record.total,jdbcType=INTEGER}
+    user_id = #{record.userId,jdbcType=BIGINT},
+    user_name = #{record.userName,jdbcType=VARCHAR},
+    user_phone = #{record.userPhone,jdbcType=VARCHAR},
+    user_address = #{record.userAddress,jdbcType=VARCHAR},
+    status = #{record.status,jdbcType=INTEGER},
+    created = #{record.created,jdbcType=TIMESTAMP},
+    total = #{record.total,jdbcType=DOUBLE}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -239,7 +239,7 @@
         created = #{created,jdbcType=TIMESTAMP},
       </if>
       <if test="total != null" >
-        total = #{total,jdbcType=INTEGER},
+        total = #{total,jdbcType=DOUBLE},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -252,7 +252,7 @@
       user_address = #{userAddress,jdbcType=VARCHAR},
       status = #{status,jdbcType=INTEGER},
       created = #{created,jdbcType=TIMESTAMP},
-      total = #{total,jdbcType=INTEGER}
+      total = #{total,jdbcType=DOUBLE}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

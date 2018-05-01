@@ -116,7 +116,7 @@ export default new Router({
       component:UserCart
     },
     {
-      path:'/userOrderAddress',
+      path:'/userOrderAddress/:userId',
       name:'userOrderAddress',
       component:UserOrderAddress
     },

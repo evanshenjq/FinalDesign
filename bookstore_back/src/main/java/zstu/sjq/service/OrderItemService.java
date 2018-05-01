@@ -12,6 +12,5 @@ public interface OrderItemService {
 	public void addOrderItem(BsOrderItem orderItem);
 	
 	public List<BsOrderItem> getOrderItemByOrderId(long orderId);
-	
 
 }

@@ -565,52 +565,52 @@ public class BsOrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andTotalEqualTo(Integer value) {
+        public Criteria andTotalEqualTo(Double value) {
             addCriterion("total =", value, "total");
             return (Criteria) this;
         }
 
-        public Criteria andTotalNotEqualTo(Integer value) {
+        public Criteria andTotalNotEqualTo(Double value) {
             addCriterion("total <>", value, "total");
             return (Criteria) this;
         }
 
-        public Criteria andTotalGreaterThan(Integer value) {
+        public Criteria andTotalGreaterThan(Double value) {
             addCriterion("total >", value, "total");
             return (Criteria) this;
         }
 
-        public Criteria andTotalGreaterThanOrEqualTo(Integer value) {
+        public Criteria andTotalGreaterThanOrEqualTo(Double value) {
             addCriterion("total >=", value, "total");
             return (Criteria) this;
         }
 
-        public Criteria andTotalLessThan(Integer value) {
+        public Criteria andTotalLessThan(Double value) {
             addCriterion("total <", value, "total");
             return (Criteria) this;
         }
 
-        public Criteria andTotalLessThanOrEqualTo(Integer value) {
+        public Criteria andTotalLessThanOrEqualTo(Double value) {
             addCriterion("total <=", value, "total");
             return (Criteria) this;
         }
 
-        public Criteria andTotalIn(List<Integer> values) {
+        public Criteria andTotalIn(List<Double> values) {
             addCriterion("total in", values, "total");
             return (Criteria) this;
         }
 
-        public Criteria andTotalNotIn(List<Integer> values) {
+        public Criteria andTotalNotIn(List<Double> values) {
             addCriterion("total not in", values, "total");
             return (Criteria) this;
         }
 
-        public Criteria andTotalBetween(Integer value1, Integer value2) {
+        public Criteria andTotalBetween(Double value1, Double value2) {
             addCriterion("total between", value1, value2, "total");
             return (Criteria) this;
         }
 
-        public Criteria andTotalNotBetween(Integer value1, Integer value2) {
+        public Criteria andTotalNotBetween(Double value1, Double value2) {
             addCriterion("total not between", value1, value2, "total");
             return (Criteria) this;
         }

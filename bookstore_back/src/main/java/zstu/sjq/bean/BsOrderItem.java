@@ -7,11 +7,7 @@ public class BsOrderItem {
 
     private Long bookId;
 
-    private String bookName;
-
     private Integer num;
-
-    private Long price;
 
     public Long getId() {
         return id;
@@ -37,27 +33,11 @@ public class BsOrderItem {
         this.bookId = bookId;
     }
 
-    public String getBookName() {
-        return bookName;
-    }
-
-    public void setBookName(String bookName) {
-        this.bookName = bookName == null ? null : bookName.trim();
-    }
-
     public Integer getNum() {
         return num;
     }
 
     public void setNum(Integer num) {
         this.num = num;
-    }
-
-    public Long getPrice() {
-        return price;
-    }
-
-    public void setPrice(Long price) {
-        this.price = price;
     }
 }
