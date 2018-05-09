@@ -1,9 +1,12 @@
 package zstu.sjq.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import zstu.sjq.bean.*;
 import zstu.sjq.service.*;
@@ -82,8 +85,22 @@ public class OrderController {
 
     @RequestMapping("/getOrder/{id}")
     @ResponseBody
-    public Msg getOrderByUserId(@PathVariable Long id){
-        return Msg.success();
+    public Msg getOrderByUserId(@PathVariable Long id,@RequestParam(value="pn",defaultValue="1")Integer pn){
+
+        PageHelper.startPage(pn,10);
+        List<BsOrder> list=orderService.getOrderByUserId(id);
+        PageInfo<BsOrder> page = new PageInfo<BsOrder>(list,5);
+
+        return Msg.success().add("orders",page);
     }
 
+    @RequestMapping("/getAllOrder")
+    @ResponseBody
+    public Msg getAllOrder(@RequestParam(value="pn",defaultValue="1")Integer pn){
+        PageHelper.startPage(pn,10);
+        List<BsOrder> list=orderService.getAllOrder();
+        PageInfo<BsOrder> page = new PageInfo<BsOrder>(list,5);
+
+        return Msg.success().add("orders",page);
+    }
 }

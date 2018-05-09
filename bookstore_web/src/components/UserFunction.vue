@@ -10,7 +10,7 @@
 
     <div class="row">
         <div class="col-md-2 col-md-offset-2">
-            <div class="row function_box">
+            <div class="row function_box" @click="turnUserOrderPage()">
                 <div class="col-md-4" >
                     <img class="function_img" src="../assets/image/order.png">
                 </div>
@@ -52,6 +52,10 @@ export default {
         turnUserInfoPage(){
             var userId=sessionStorage.getItem('userId');
             this.$router.push('/userInfo/'+userId);
+        },
+        turnUserOrderPage(){
+            var userId=sessionStorage.getItem('userId');
+            this.$router.push('/userOrder/'+userId);
         }
     }
   }

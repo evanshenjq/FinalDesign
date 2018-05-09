@@ -36,4 +36,9 @@ public class OrderServiceImpl implements OrderService {
 		return orderMapper.selectByExample(example);
 	}
 
+	@Override
+	public List<BsOrder> getAllOrder() {
+		return orderMapper.selectByExample(null);
+	}
+
 }

@@ -25,9 +25,10 @@ export default {
 	data(){
 		return{
 			name:"图书"
-		};
+		};	
 	},
 	methods:{
+		//跳转到bookInfo界面，再把内容显示出来
 
 	}
 }

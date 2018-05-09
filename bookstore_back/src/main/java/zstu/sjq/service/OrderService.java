@@ -15,4 +15,6 @@ public interface OrderService {
 	
 	public List<BsOrder> getOrderByUserId(long userId);
 
+	public List<BsOrder> getAllOrder();
+
 }
