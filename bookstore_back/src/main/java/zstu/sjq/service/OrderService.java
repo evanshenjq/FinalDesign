@@ -17,4 +17,6 @@ public interface OrderService {
 
 	public List<BsOrder> getAllOrder();
 
+	public BsOrder getOrderById(long orderId);
+
 }

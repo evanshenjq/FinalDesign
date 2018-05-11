@@ -19,6 +19,7 @@ import UpdateBookPage from '@/page/adminPage/bookPage/UpdateBookPage'
 import UserCart from '@/page/UserCart'
 import UserOrderAddress from '@/page/UserOrderAddress'
 import UserOrderConfirm from '@/page/UserOrderConfirm'
+import RootLogin from '@/page/RootLogin'
 
 
 Vue.use(Router)
@@ -39,6 +40,11 @@ export default new Router({
       path:'/login',
       name:'login',
       component:Login
+    },
+    {
+      path:'/rootLogin',
+      name:'rootLogin',
+      component:RootLogin
     },
     {
       path:'/register',

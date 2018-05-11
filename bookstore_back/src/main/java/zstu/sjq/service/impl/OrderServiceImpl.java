@@ -41,4 +41,9 @@ public class OrderServiceImpl implements OrderService {
 		return orderMapper.selectByExample(null);
 	}
 
+	@Override
+	public BsOrder getOrderById(long orderId) {
+		return orderMapper.selectByPrimaryKey(orderId);
+	}
+
 }

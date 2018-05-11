@@ -3,16 +3,16 @@
     <!-- 功能栏 -->
     <div class="row" id="function_div">
         <div class="input-group input-group-sm col-md-offset-8 col-md-3">
-            <input type="text" class="form-control" aria-label="...">
+            <input type="text" class="form-control" aria-label="..." v-model="searchContent">
             <div class="input-group-btn">
-               <button type="button" class="btn btn-default">搜索</button>
+               <button type="button" class="btn btn-default" @click="searchByContent()">搜索</button>
             </div>
         </div>
     </div>
     <div class="row" id="search_choice">
         <div class="col-md-offset-8">
-            <input type="radio" name="radio" value="1">ID
-            <input type="radio" name="radio" value="2">用户名
+            <input id="check_id" type="radio" name="radio" value="1" checked>ID
+            <input id="check_name" type="radio" name="radio" value="2">用户名
         </div>
     </div>
 
@@ -83,7 +83,7 @@
 
 <script>
 import {dateShow} from '@/assets/js/time.js'
-
+var searchStatus;
 var self;
 export default {
     data(){
@@ -92,7 +92,8 @@ export default {
             nowPage:'',
             totalPage:'',
             total:'',
-            pageNums:[]
+            pageNums:[],
+            searchContent:""
         };
     },
     mounted(){
@@ -101,7 +102,13 @@ export default {
     },
     methods:{
         toPage(pn){
-            $.ajax({
+            if(searchStatus=="name"){
+                this.toNamePage(pn,self.searchContent);
+            }
+            else if(searchStatus=="id"){
+                this.toIdPage(pn,self.searchContent);
+            }else{
+                $.ajax({
 				url:"/zstu/getAllUsers",
 				data:{'pn':pn},
 				type:"POST",
@@ -114,8 +121,9 @@ export default {
                     self.total=result.extend.users.total;
                     //3.解释显示分页条
                     self.buildPageNav(result);
-				      }
+				    }
             });
+            }
        },
        buildPageNav(result){
            this.resetPage();
@@ -152,6 +160,109 @@ export default {
         myDateShow(time){
            return dateShow(time);
         },
+        toIdPage(pn,searchContent){
+           $.ajax({
+                    url:"/zstu/getUserByIdPage/"+searchContent,
+                    data:{'pn':pn},
+                    type:"POST",
+                    success:function(result){
+                        //console.log(result);
+                        self.users=result.extend.users.list;
+                        //2.解析显示分页信息
+                        self.nowPage=result.extend.users.pageNum;
+                        self.totalPage=result.extend.users.pages;
+                        self.total=result.extend.users.total;
+                        //3.解释显示分页条
+                        self.buildIdPageNav(result);
+                    }
+            });        
+       },
+       toNamePage(pn,searchContent){
+           $.ajax({
+                    url:"/zstu/getUsersByNamePage/"+searchContent,
+                    data:{'pn':pn},
+                    type:"POST",
+                    success:function(result){
+                        //console.log(result);
+                        self.users=result.extend.users.list;
+                        //2.解析显示分页信息
+                        self.nowPage=result.extend.users.pageNum;
+                        self.totalPage=result.extend.users.pages;
+                        self.total=result.extend.users.total;
+                        //3.解释显示分页条
+                        self.buildNamePageNav(result);
+				    }
+                    });
+       },
+       buildIdPageNav(result){
+           this.resetPage();
+           self.pageNums=result.extend.users.navigatepageNums;
+           if(!result.extend.users.hasPreviousPage){
+               $('#firstPageLi').addClass('disabled');
+               $('#prePageLi').addClass('disabled');
+           }else{
+               $('#firstPageLi').click(function(){
+                   self.toIdPage(1,this.searchContent)
+               });
+               $('#prePageLi').click(function(){
+                   self.toIdPage(result.extend.users.pageNum-1,this.searchContent);
+               })
+           }
+            if(!result.extend.users.hasNextPage){
+               $('#lastPageLi').addClass('disabled');
+               $('#nextPageLi').addClass('disabled');
+           }else{
+               $('#lastPageLi').click(function(){
+                   self.toIdPage(result.extend.users.pages,this.searchContent);
+               });
+               $('#nextPageLi').click(function(){
+                   self.toIdPage(result.extend.users.pageNum+1,this.searchContent);
+               })
+           }
+        },
+        buildNamePageNav(result){
+           this.resetPage();
+           self.pageNums=result.extend.users.navigatepageNums;
+           if(!result.extend.users.hasPreviousPage){
+               $('#firstPageLi').addClass('disabled');
+               $('#prePageLi').addClass('disabled');
+           }else{
+               $('#firstPageLi').click(function(){
+                   self.toNamePage(1,this.searchContent)
+               });
+               $('#prePageLi').click(function(){
+                   self.toNamePage(result.extend.users.pageNum-1,this.searchContent);
+               })
+           }
+            if(!result.extend.users.hasNextPage){
+               $('#lastPageLi').addClass('disabled');
+               $('#nextPageLi').addClass('disabled');
+           }else{
+               $('#lastPageLi').click(function(){
+                   self.toNamePage(result.extend.users.pages,this.searchContent);
+               });
+               $('#nextPageLi').click(function(){
+                   self.toNamePage(result.extend.users.pageNum+1,this.searchContent);
+               })
+           }
+        },
+        searchByContent(){
+           let searchContent=this.searchContent;
+           console.log(searchContent);
+            if(searchContent==""){
+                searchStatus="";
+                console.log(searchStatus);
+                this.toPage(1);
+            }else{
+                if($("#check_id").is(":checked")){
+                    searchStatus="id";
+                    this.toIdPage(1,searchContent);
+                }else{
+                    searchStatus="name";
+                    this.toNamePage(1,searchContent);
+                }
+            }           
+       }
     }
 }
 </script>

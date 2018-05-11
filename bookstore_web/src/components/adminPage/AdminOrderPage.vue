@@ -25,7 +25,7 @@
                     <td>{{myDateShow(order.created)}}</td>
                     <td>{{statusShow(order.status)}}</td>
                     <td><button class="btn btn-primary glyphicon glyphicon-star orderBtn" @click="showOrder(order.id)"></button></td>
-                    <td><button class="btn btn-warning glyphicon glyphicon-hand-left orderBtn" @click="confirmOrder(order.id)"></button></td>
+                    <td><button class="btn btn-warning glyphicon glyphicon-hand-left orderBtn" @click="openStatusModal(order.id)"></button></td>
                 </tr>
             </tbody>
         </table>
@@ -66,6 +66,67 @@
             </ul>
 		</div>
 	</div>
+    <!-- order status modal -->
+    <!-- 模态框 -->
+      <!-- 添加模态框 -->
+      <div class="modal fade" tabindex="-1" role="dialog" id="orderStatusModal">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>订单状态</label>
+                    <select class="form-control" v-model="orderStatus">
+                        <option value=1>未付款</option>
+                        <option value=2>已付款</option>
+                        <option value=3>未发货</option>
+                        <option value=4>已发货</option>
+                        <option value=5>交易成功</option>
+                        <option value=6>交易关闭</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" @click="changeOrderStatus()">保存</button>
+            </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- show order modal -->
+        <div class="modal fade" id="order_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">订单详情</h4>
+            </div>
+            <div class="modal-body">
+                <!-- books info -->
+                <div id="order_books">
+                <div class="row" id="order_show_books_info" v-for="(item,index) in orderItems">
+                    <div class="order_show_book_info">
+                        <div class="col-md-2">
+                            <img class="order_show_book_img" :src="item.image">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="order_show_book_name">{{item.name}}</div>
+                            <div class="order_show_book_publish">{{item.publish}}</div>
+                            <div class="order_show_book_price">￥{{item.price}}</div>
+                            <div class="order_show_book_num">
+                                数量:{{item.num}}件
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!-- order total -->
+                <div id="order_total" class="col-md-offset-9">总价:¥{{order.total}}
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
   </div>
 </template>
 
@@ -81,7 +142,11 @@ export default {
             nowPage:'',
             totalPage:'',
             total:'',
-            pageNums:[]
+            pageNums:[],
+            orderIdNow:'',
+            orderItems:[],
+            order:'',
+            orderStatus:''
         };
     },
     mounted(){
@@ -163,16 +228,93 @@ export default {
                return "交易关闭";
            }
        },
-       showOrder(){
-           alert("订单详情");
-       }
-    }
-  
+       showOrder(id){
+           this.orderIdNow=id;
+           $.ajax({
+                url:"/zstu/getUserOrderItem/"+self.orderIdNow,
+			    type:"POST",
+				success:function(result){
+                    self.orderItems=result.extend.orderItems;
+				}
+           });
+            $("#order_modal").modal('show');
+       },
+       openStatusModal(id){
+           this.orderIdNow=id;
+           $.ajax({
+                url:"/zstu/getOrderById/"+self.orderIdNow,
+			    type:"POST",
+				success:function(result){
+                    self.orderStatus=result.extend.order.status;
+				}
+           });
+            $("#orderStatusModal").modal('show');
+        },
+        changeOrderStatus(){
+            let formData=new FormData();
+            formData.append("orderId",this.orderIdNow);
+            formData.append("orderStatus",this.orderStatus);
+            $.ajax({
+                    url:"/zstu/updateOrder",
+                    data:formData,
+                    type:"POST",
+                    contentType: false,  
+                    processData: false,
+                    success:function(result){
+                        alert("状态修改成功");
+                        location.reload();
+                    }
+            });
+        }
+    },
 }
 </script>
 
 <style>
 .orderBtn{
   height: 25px;
+}
+#order_show_books_info{
+    margin-top: 20px;
+    margin-bottom: 14px;
+}
+#order_books{
+    border-bottom-style:solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #dddddd;
+}
+.order_show_book_info{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+.order_show_book_img{
+    width:90px;
+    height:110px;
+}
+.order_show_book_name{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+.order_show_book_publish{
+    margin-bottom: 3px;
+    font-size: 14px;
+    font-weight: 510;
+}
+.order_show_book_price{
+    color: #b12704;
+    font-size: 16px;
+    margin-bottom: 3px;
+}
+.order_show_book_num{
+    margin-bottom: 3px;
+    font-size: 14px;
+    font-weight: 510;
+}
+#order_total{
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #b12704;
 }
 </style>

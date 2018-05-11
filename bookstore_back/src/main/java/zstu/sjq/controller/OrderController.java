@@ -13,6 +13,7 @@ import zstu.sjq.service.*;
 import zstu.sjq.utils.IDUtils;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -80,6 +81,12 @@ public class OrderController {
     @RequestMapping("/updateOrder")
     @ResponseBody
     public Msg updateOrder(HttpServletRequest request){
+        long orderId=Long.valueOf(request.getParameter("orderId"));
+        int orderStatus=Integer.valueOf(request.getParameter("orderStatus"));
+        BsOrder order=new BsOrder();
+        order.setId(orderId);
+        order.setStatus(orderStatus);
+        orderService.updateOrder(order);
         return Msg.success();
     }
 
@@ -102,5 +109,42 @@ public class OrderController {
         PageInfo<BsOrder> page = new PageInfo<BsOrder>(list,5);
 
         return Msg.success().add("orders",page);
+    }
+
+    @RequestMapping("/getUserOrderItem/{orderId}")
+    @ResponseBody
+    public Msg getUserCartItemByCartId(@PathVariable long orderId) {
+
+        List<BsOrderItem> items=orderItemService.getOrderItemByOrderId(orderId);
+
+        List<BsOrderDetailItem> list=new ArrayList<>();
+
+        for(BsOrderItem i : items) {
+            BsOrderDetailItem item=new BsOrderDetailItem();
+            item.setId(i.getId());
+            item.setOrderId(i.getOrderId());
+            item.setNum(i.getNum());
+            BsBook book=bookService.getBook(i.getBookId());
+            item.setBookId(book.getId());
+            item.setName(book.getName());
+            item.setPublish(book.getPublish());
+            item.setPrice(book.getPrice());
+            item.setImage(book.getImage());
+
+            list.add(item);
+        }
+
+        BsOrder order=orderService.getOrderById(orderId);
+
+        return Msg.success().add("orderItems", list).add("order",order);
+    }
+
+    @RequestMapping("/getOrderById/{id}")
+    @ResponseBody
+    public Msg getOrderById(@PathVariable long id){
+
+        BsOrder order=orderService.getOrderById(id);
+
+        return Msg.success().add("order",order);
     }
 }

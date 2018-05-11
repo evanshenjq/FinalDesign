@@ -3,12 +3,12 @@
       <div class="row footer_content">
         <div class="col-md-offset-4 col-md-1">
             <div class="footerTitle">了解我们</div>
-            <button class="btn btn-link">关于我们</button>
+            <button class="btn btn-link" @click="aboutUs">关于我们</button>
         </div>
         <div class="col-md-1">
             <div class="footerTitle" >帮助中心</div>
-            <button class="btn btn-link">订单查询</button>
-            <button class="btn btn-link">退换货</button>
+            <!-- <button class="btn btn-link">订单查询</button> -->
+            <button class="btn btn-link" @click="tuihuanhuo()">退换货</button>
         </div>
         <div class="col-md-1">
             <div class="footerTitle" >支付方式</div>
@@ -18,7 +18,7 @@
         </div>
         <div class="col-md-1">
             <div class="footerTitle">管理员中心</div>
-            <button class="btn btn-link">管理员入口</button>
+            <button class="btn btn-link" @click="toRootLogin()">管理员入口</button>
         </div>
       </div>
       <div class="author">@ztsu.sjq.final.design</div>
@@ -27,7 +27,17 @@
 
 <script>
 export default {
-  
+  methods:{
+      tuihuanhuo(){
+          alert("待开发");
+      },
+      aboutUs(){
+          alert("沈佳琦独自开发");
+      },
+      toRootLogin(){
+          this.$router.push("/rootLogin");
+      }
+  }
 }
 </script>
 
