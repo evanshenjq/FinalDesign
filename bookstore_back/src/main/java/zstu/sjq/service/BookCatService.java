@@ -19,4 +19,6 @@ public interface BookCatService {
 	
 	public BsBookCat getBookCat(long bookCatId);
 
+	public List<BsBookCat> getCatsByName(String name);
+
 }

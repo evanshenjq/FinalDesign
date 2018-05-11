@@ -1,5 +1,6 @@
 package zstu.sjq.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -105,12 +106,24 @@ public class BookController {
 	}
 	
 	//找到单本书籍信息
+	@RequestMapping("/getBookPage/{id}")
+	@ResponseBody
+	public Msg getBookByPage(@PathVariable Long id,@RequestParam(value="pn",defaultValue="1")Integer pn) {
+
+		PageHelper.startPage(pn,5);
+		List<BsBook> list =new ArrayList<BsBook>();
+		list.add(bookService.getBook(id));
+		PageInfo<BsBook> page = new PageInfo<BsBook>(list,5);
+		return Msg.success().add("books", page);
+	}
+
+	//找到单本书籍信息
 	@RequestMapping("/getBook/{id}")
 	@ResponseBody
 	public Msg getBook(@PathVariable Long id) {
-		
+
 		BsBook book=bookService.getBook(id);
-		
+
 		return Msg.success().add("book", book);
 	}
 	
@@ -142,4 +155,15 @@ public class BookController {
 		
 		return Msg.success().add("books", page);
 	}
+
+
+	@RequestMapping("/getBooksByName/{name}")
+	@ResponseBody
+	public Msg getBooksByName(@PathVariable String name,@RequestParam(value="pn",defaultValue="1")Integer pn){
+		PageHelper.startPage(pn,5);
+		List<BsBook> list=bookService.getBookByName(name);
+		PageInfo<BsBook> page = new PageInfo<BsBook>(list,5);
+		return Msg.success().add("books",page);
+	}
+
 }

@@ -12,13 +12,13 @@
               <div id="search_sort" class="col-md-offset-9">
                              <ul class="nav navbar-nav">
                                 <!-- 下拉过滤器 -->
-                                 <li class="dropdown">
+                                 <!-- <li class="dropdown">
                                     <a href=" " class="dropdown-toggle search_con" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="filter_choose">评分 <span class="caret"></span></a >
                                          <ul class="dropdown-menu"> 
                                              <li><a href="#" @click="search_sort($event)">评分</a></li>
                                              <li><a href="#" @click="search_sort($event)">销量</a></li>                             
                                          </ul>
-                                </li>
+                                </li> -->
                 </ul>
             </div>
             </nav>
@@ -114,15 +114,41 @@ export default {
     },
     mounted(){
         self=this;
-        this.getCatName();
-        this.toPage(1);
+        if(this.$route.params.searchStatus!=null){
+            this.toResultPage(1);
+        }else{
+            this.getCatName();
+            this.toPage(1);
+        }
     },
     methods:{
         toPage(pn){
-            let catId=this.$route.params.catId;
-            console.log(catId);
+            if(this.$route.params.catId==0){
+                this.toResultPage(pn);
+            }else{
+                let catId=this.$route.params.catId;
+                console.log(catId);
+                $.ajax({
+                    url:"/zstu/getOnBooksByCat/"+catId,
+                    data:{'pn':pn},
+                    type:"POST",
+                    success:function(result){
+                        console.log(result);
+                        self.books=result.extend.books.list;
+                        //2.解析显示分页信息
+                        self.nowPage=result.extend.books.pageNum;
+                        self.totalPage=result.extend.books.pages;
+                        self.total=result.extend.books.total;
+                        //3.解释显示分页条
+                        self.buildPageNav(result);
+                    }
+                });
+            }
+       },
+       toResultPage(pn){
+            let searchName=this.$route.params.searchName;
             $.ajax({
-				url:"/zstu/getOnBooksByCat/"+catId,
+				url:"/zstu/getBooksByName/"+searchName,
 				data:{'pn':pn},
 				type:"POST",
 				success:function(result){

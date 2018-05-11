@@ -106,7 +106,7 @@
                         <button type="button" class="btn btn-success glyphicon glyphicon-plus" @click="addCatModal()">添加</button>
                     </div>
                 </div>
-                <div class="row" id="search_div">
+                <!-- <div class="row" id="search_div">
                     <div class="input-group input-group-sm col-md-8 col-md-offset-1">
                         <input type="text" class="form-control" aria-label="...">
                         <div class="input-group-btn">
@@ -117,9 +117,9 @@
                 <div class="row" id="search_choice">
                     <div class="col-md-offset-1">
                         <input type="radio" name="radio" value="1" checked>ID
-                        <input type="radio" name="radio" value="2">书名
+                        <input type="radio" name="radio" value="2">类型
                     </div>
-                </div>
+                </div> -->
             </div>
            
         </div>

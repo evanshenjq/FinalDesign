@@ -25,5 +25,8 @@ public interface UserService {
 	
 	//得到所有用户信息
 	public List<BsUser> getAllUsers();
+
+	//通过名字得到用户
+	public List<BsUser> getUsersByName(String name);
 	
 }

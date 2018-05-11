@@ -1,5 +1,6 @@
 package zstu.sjq.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -53,7 +54,30 @@ public class BookCatController {
 		BsBookCat cat=bookCatService.getBookCat(id);
 		return Msg.success().add("cat", cat);
 	}
-	
+
+	@RequestMapping("/getBookCatByPage/{id}")
+	@ResponseBody
+	public Msg getBookCat(@PathVariable Long id,@RequestParam(value="pn",defaultValue="1")Integer pn) {
+
+		PageHelper.startPage(pn,10);
+		List<BsBookCat> list=new ArrayList<>();
+		list.add(bookCatService.getBookCat(id));
+		PageInfo<BsBookCat> page = new PageInfo<BsBookCat>(list,5);
+
+		return Msg.success().add("cat", page);
+	}
+
+	@RequestMapping("/getBookCatByNamePage/{name}")
+	@ResponseBody
+	public Msg getBookCat(@PathVariable String name,@RequestParam(value="pn",defaultValue="1")Integer pn) {
+
+		PageHelper.startPage(pn,10);
+		List<BsBookCat> list=bookCatService.getCatsByName(name);
+		PageInfo<BsBookCat> page = new PageInfo<BsBookCat>(list,5);
+
+		return Msg.success().add("cat", page);
+	}
+
 	@RequestMapping("/addBookCat")
 	@ResponseBody
 	public Msg addBookCat(HttpServletRequest request) {

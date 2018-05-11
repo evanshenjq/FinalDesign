@@ -73,4 +73,12 @@ public class BookServiceImpl implements BookService {
 		return bsBookMapper.selectByExample(example);
 	}
 
+	@Override
+	public List<BsBook> getBookByName(String bookName) {
+		BsBookExample example=new BsBookExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andNameLike(bookName);
+		return bsBookMapper.selectByExample(example);
+	}
+
 }

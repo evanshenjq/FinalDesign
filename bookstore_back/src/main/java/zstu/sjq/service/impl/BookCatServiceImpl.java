@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import zstu.sjq.bean.BsBookCat;
+import zstu.sjq.bean.BsBookCatExample;
 import zstu.sjq.dao.BsBookCatMapper;
 import zstu.sjq.service.BookCatService;
 @Service
@@ -41,6 +42,14 @@ public class BookCatServiceImpl implements BookCatService {
 	@Override
 	public BsBookCat getBookCat(long bookCatId) {
 		return bsBookCatMapper.selectByPrimaryKey(bookCatId);
+	}
+
+	@Override
+	public List<BsBookCat> getCatsByName(String name) {
+		BsBookCatExample example=new BsBookCatExample();
+		BsBookCatExample.Criteria criteria=example.createCriteria();
+		criteria.andNameLike(name);
+		return bsBookCatMapper.selectByExample(example);
 	}
 
 }

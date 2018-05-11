@@ -25,4 +25,6 @@ public interface BookService {
 	
 	public List<BsBook> getOnBooksByCatId(long catId);
 
+	public List<BsBook> getBookByName(String bookName);
+
 }

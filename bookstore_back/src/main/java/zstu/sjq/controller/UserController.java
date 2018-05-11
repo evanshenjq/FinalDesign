@@ -1,6 +1,7 @@
 package zstu.sjq.controller;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -109,5 +110,32 @@ public class UserController {
 				
 		return Msg.success().add("users",page);
 	}
+
+	@RequestMapping("/getUserByIdPage/{id}")
+	@ResponseBody
+	public Msg getUserByIdPage(@PathVariable long id,@RequestParam(value="pn",defaultValue="1")Integer pn) {
+
+		PageHelper.startPage(pn,10);
+		List<BsUser> list=new ArrayList<>();
+		list.add(userService.getUserById(id));
+		PageInfo<BsUser> page = new PageInfo<BsUser>(list,5);
+		return Msg.success().add("users", page);
+
+	}
+
+	//得到所有用户信息
+	@RequestMapping("/getUsersByNamePage/{name}")
+	@ResponseBody
+	public Msg getUsersByNamePage(@PathVariable String name,@RequestParam(value="pn",defaultValue="1")Integer pn) {
+
+		//每页大小
+		PageHelper.startPage(pn,10);
+		List<BsUser> list=userService.getUsersByName(name);
+		//连续显示页码
+		PageInfo<BsUser> page = new PageInfo<BsUser>(list,5);
+
+		return Msg.success().add("users",page);
+	}
+
 
 }

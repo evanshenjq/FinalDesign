@@ -67,4 +67,12 @@ public class UserServiceImpl implements UserService {
 		return bsUserMapper.selectByExample(null);
 	}
 
+	@Override
+	public List<BsUser> getUsersByName(String name) {
+		BsUserExample example=new BsUserExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andNameLike(name);
+		return bsUserMapper.selectByExample(example);
+	}
+
 }
