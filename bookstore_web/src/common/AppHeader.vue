@@ -41,11 +41,12 @@ export default {
                 self.$router.push({
 					name:'booksInfo',
 					params:{
-						catId:0,
+						catId:self.searchName,
 						searchName:self.searchName,
 						searchStatus:1
 					}
-           		});
+				   });
+				   location.reload();
 			}
 		}
 	}

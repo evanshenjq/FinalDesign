@@ -114,7 +114,8 @@ export default {
     },
     mounted(){
         self=this;
-        if(this.$route.params.searchStatus!=null){
+         var reg = /^[0-9]*$/;
+        if(!reg.test(this.$route.params.catId)){
             this.toResultPage(1);
         }else{
             this.getCatName();
@@ -146,7 +147,7 @@ export default {
             }
        },
        toResultPage(pn){
-            let searchName=this.$route.params.searchName;
+            let searchName=this.$route.params.catId;
             $.ajax({
 				url:"/zstu/getBooksByName/"+searchName,
 				data:{'pn':pn},
