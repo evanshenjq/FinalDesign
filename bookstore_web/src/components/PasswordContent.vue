@@ -8,7 +8,7 @@
             </a>    
         </span>>
          <span>
-            <a class="guideHeader" href="/userInfo">
+            <a class="guideHeader" @click="turnUserInfoPage()">
                 个人信息
             </a>    
         </span>>
@@ -127,6 +127,10 @@ export default {
                     });
                 }
             }
+        },
+        turnUserInfoPage(){
+            let userId=sessionStorage.getItem("userId");
+            this.$router.push('/userInfo/'+userId);
         }
     }
 }

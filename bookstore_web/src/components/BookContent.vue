@@ -8,10 +8,15 @@
             </a>    
         </span>>
         <span>
-            <a class="guideHeader">
-                小说
+            <a class="guideHeader" @click="turnBooksInfoPage(book.catId)">
+                {{bookCat}}
             </a>
+        </span>>
+        <span>
+            <span class="guideHeader_bookName">
+                {{book.name}}
             </span>
+        </span>
     </div>
     <!-- 内容 -->
     <div id="book_content">
@@ -78,6 +83,7 @@ export default {
             book:"",
             bookNum:1,
             showBookNumError:false,
+            bookCat:""
         }
     },
     mounted(){
@@ -95,6 +101,14 @@ export default {
                 type:"POST",
                 success:function(result){
                     self.book=result.extend.book;
+                    let catId=result.extend.book.catId;
+                    $.ajax({
+                        url:"/zstu/getBookCat/"+catId,
+                        type:"POST",
+                        success:function(result){
+                            self.bookCat=result.extend.cat.name;
+                        }
+                    });
                 }
             });
         },
@@ -164,6 +178,9 @@ export default {
                     });
                 }
             }
+        },
+        turnBooksInfoPage(catId){
+            this.$router.push('/booksInfo/'+catId);
         }
     }
   
@@ -176,6 +193,9 @@ a{
 }
 .guideHeader{
     color: #767676;
+}
+.guideHeader_bookName{
+    color: #c45500;
 }
 #guideHeader{
     margin-left: 14px;

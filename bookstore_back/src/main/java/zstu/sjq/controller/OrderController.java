@@ -69,6 +69,7 @@ public class OrderController {
             orderItemService.addOrderItem(orderItem);
             BsBook book=bookService.getBook(bookId);
             book.setNum(book.getNum()-cartItem.getNum());
+            book.setSell(Integer.parseInt(String.valueOf(book.getSell()+cartItem.getNum())));
             bookService.updateBook(book);
             //clean cart
             cartItemService.deleteCartItem(cartItem.getId());

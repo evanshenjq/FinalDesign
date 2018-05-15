@@ -126,6 +126,8 @@ export default {
                         //pay function
                         //....
                         alert("订单提交成功！谢谢惠顾！");
+                        let userId=sessionStorage.getItem("userId");
+                        self.$router.push("/userOrder/"+userId);
                     }
                 });
             }
